@@ -5,11 +5,10 @@
   "scripts": {
     "dev": "nuxt-ts",
     "build": "nuxt-ts build",
-    "build:export": "npm run build && npm run generate",
     "start": "nuxt-ts start",
-    "serve": "cross-env HOST=localhost PORT=3001 nuxt-ts serve",
+    "serve": "nuxt-ts serve",
     "serve:lhci": "npm run start",
-    "generate": "cross-env HOST=localhost PORT=3001 nuxt-ts export",
+    "generate": "nuxt-ts generate",
     "lint:js": "eslint --ext .js,.vue --ignore-path .gitignore .",
     "lint:style": "stylelint **/*.{vue,css} --ignore-path .gitignore",
     "lint": "npm run lint:js && npm run lint:style",

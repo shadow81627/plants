@@ -100,15 +100,15 @@ export default {
     '@nuxtjs/pwa',
     // Doc: https://github.com/nuxt/content
     '@nuxt/content',
-    [
-      'vue-warehouse/nuxt',
-      {
-        storages: [
-          // 'store/storages/localStorage',
-          // 'store/storages/cookieStorage',
-        ],
-      },
-    ],
+    // [
+    //   'vue-warehouse/nuxt',
+    //   {
+    //     storages: [
+    //       // 'store/storages/localStorage',
+    //       // 'store/storages/cookieStorage',
+    //     ],
+    //   },
+    // ],
   ],
   /*
    ** Axios module configuration
