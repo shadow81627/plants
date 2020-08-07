@@ -6,14 +6,23 @@
         <p>
           Brisbane City Council’s Free Native Plants Program offers a range of
           plants to assist the community to plant and green their properties.
-          The native species provided through the program will help grow our
-          city’s urban forest and support local wildlife.
+          Council offers the Free Native Plants Program to residential
+          ratepayers, schools, clubs, body corporates and registered community
+          groups within the Brisbane Local Government area to plant on their
+          properties. The native species provided through the program are
+          designed to help grow our city's urban forest and support local
+          wildlife. Further information is available on the
+          <a
+            rel="noreferrer"
+            href="https://www.brisbane.qld.gov.au/clean-and-green/green-home-and-community/sustainable-gardening/free-native-plants-program"
+            >Brisbane City Council website</a
+          >.
         </p>
       </v-col>
     </v-row>
     <v-row>
       <v-col>
-        <v-sheet dark>
+        <v-sheet color="secondary">
           <v-carousel cycle hide-delimiters>
             <v-carousel-item
               v-for="(item, i) in items"
@@ -24,7 +33,21 @@
               "
               reverse-transition="fade-transition"
               transition="fade-transition"
-            ></v-carousel-item>
+            >
+              <v-container
+                class="fill-height align-items-end justify-start pb-0"
+              >
+                <v-row class="align-self-end pb-0" align="end" justify="start">
+                  <v-col class="pa-0">
+                    <v-card style="background: rgba(0, 0, 0, 0.3);">
+                      <v-card-text class="caption text-no-wrap">
+                        {{ item.credit }}
+                      </v-card-text>
+                    </v-card>
+                  </v-col>
+                </v-row>
+              </v-container>
+            </v-carousel-item>
           </v-carousel>
         </v-sheet>
       </v-col>
@@ -33,13 +56,17 @@
 </template>
 
 <script>
+import { shuffle } from 'lodash-es'
 export default {
   async fetch() {
-    const result = await this.$content('species').fetch()
-    const { body } = result
-    this.items = body
-      .filter((item) => item.Image)
-      .map((item) => ({ src: item.Image }))
+    const content = await this.$content('species').fetch()
+    const { body } = content
+    const result = shuffle(
+      body
+        .filter((item) => item.Image)
+        .map((item) => ({ src: item.Image, credit: item['Image Credit'] }))
+    )
+    this.items = result
   },
   data: () => ({
     items: [],
