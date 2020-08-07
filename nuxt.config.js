@@ -1,11 +1,12 @@
 import colors from 'vuetify/es5/util/colors'
+import pkg from './package'
 
 export default {
   /*
    ** Nuxt rendering mode
    ** See https://nuxtjs.org/api/configuration-mode
    */
-  mode: 'universal',
+  mode: 'spa',
   /*
    ** Nuxt target
    ** See https://nuxtjs.org/api/configuration-target
@@ -16,18 +17,53 @@ export default {
    ** See https://nuxtjs.org/api/configuration-head
    */
   head: {
-    titleTemplate: '%s - ' + process.env.npm_package_name,
-    title: process.env.npm_package_name || '',
+    titleTemplate: (titleChunk) => {
+      const defaultTitle = 'Free Native Plants'
+      // If undefined or blank then we don't need the seperator
+      return titleChunk ? `${titleChunk} | ${defaultTitle}` : defaultTitle
+    },
     meta: [
-      { charset: 'utf-8' },
+      {
+        once: true,
+        name: 'charset',
+        hid: 'charset',
+        content: 'utf-8',
+      },
+      {
+        property: 'og:title',
+        template: (titleChunk) => {
+          const defaultTitle = 'Free Native Plants'
+          // If undefined or blank then we don't need the hyphen
+          return titleChunk ? `${titleChunk} - ${defaultTitle}` : defaultTitle
+        },
+        hid: 'og:title',
+      },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       {
         hid: 'description',
         name: 'description',
         content: process.env.npm_package_description || '',
       },
+      {
+        once: true,
+        name: 'version',
+        hid: 'version',
+        content: pkg.version,
+      },
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+    link: [
+      {
+        once: true,
+        rel: 'icon',
+        hid: 'icon',
+        type: 'image/x-icon',
+        href: '/favicon.ico',
+      },
+    ],
+  },
+  generate: {
+    // if you want to use '404.html' instead of the default '200.html'
+    fallback: true,
   },
   /*
    ** Global CSS
@@ -37,7 +73,7 @@ export default {
    ** Plugins to load before mounting the App
    ** https://nuxtjs.org/guide/plugins
    */
-  plugins: [],
+  plugins: [{ src: 'plugins/theme', mode: 'client' }],
   /*
    ** Auto import components
    ** See https://nuxtjs.org/api/configuration-components
@@ -61,6 +97,15 @@ export default {
     '@nuxtjs/pwa',
     // Doc: https://github.com/nuxt/content
     '@nuxt/content',
+    [
+      'vue-warehouse/nuxt',
+      {
+        storages: [
+          // 'store/storages/localStorage',
+          // 'store/storages/cookieStorage',
+        ],
+      },
+    ],
   ],
   /*
    ** Axios module configuration
@@ -71,15 +116,24 @@ export default {
    ** Content module configuration
    ** See https://content.nuxtjs.org/configuration
    */
-  content: {},
+  content: {
+    csc: {
+      checkType: true,
+    },
+  },
   /*
    ** vuetify module configuration
    ** https://github.com/nuxt-community/vuetify-module
    */
   vuetify: {
     customVariables: ['~/assets/variables.scss'],
+    treeShake: true,
+    defaultAssets: false,
+    icons: {
+      iconfont: 'mdiSvg',
+    },
     theme: {
-      dark: true,
+      dark: false,
       themes: {
         dark: {
           primary: colors.blue.darken2,
@@ -97,5 +151,7 @@ export default {
    ** Build configuration
    ** See https://nuxtjs.org/api/configuration-build/
    */
-  build: {},
+  build: {
+    transpile: ['lodash-es'],
+  },
 }
