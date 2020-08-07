@@ -1,6 +1,6 @@
 {
   "name": "brisbane-city-council-free-native-plants",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "nuxt-ts",
