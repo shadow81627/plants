@@ -19,20 +19,21 @@
           <v-img
             :lazy-src="
               item.Image
-                ? require(`@/assets/img/species/${item.Image}?lqip&resize&sizes=256`)
+                ? require(`@/assets/img/species/${item.Image}?resize&size=256&lqip&placeholder`)
                     .src
                 : null
             "
             :src="
               item.Image
-                ? require(`@/assets/img/species/${item.Image}?lqip&resize&sizes=256`)
+                ? require(`@/assets/img/species/${item.Image}?resize&size=256&lqip&placeholder`)
                     .src
                 : null
             "
             height="256"
+            max-height="256"
             :src-set="
               item.Image
-                ? require(`@/assets/img/species/${item.Image}?webp&resize&sizes[]=256&sizes[]=512&sizes[]=768`)
+                ? require(`@/assets/img/species/${item.Image}?resize&sizes[]=256&sizes[]=512&sizes[]=768&webp&placeholder`)
                     .srcSet
                 : null
             "
@@ -43,7 +44,7 @@
           <v-card-subtitle class="pb-0 font-italic">{{
             item.Species.split('(')[1].replace(/\)+$/, '').trim()
           }}</v-card-subtitle>
-          <v-card-subtitle>
+          <v-card-subtitle class="flex-grow-1">
             {{ truncate(item['Description and growing requirements']) }}
           </v-card-subtitle>
 
@@ -58,7 +59,7 @@
               </v-card-subtitle>
               <v-card-text>
                 <v-chip
-                  v-for="attract in item.Attracts.split(',')"
+                  v-for="attract in item.Attracts.split(',').sort()"
                   :key="attract"
                 >
                   {{ startCase(attract) }}

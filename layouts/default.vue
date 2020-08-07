@@ -27,7 +27,7 @@
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
       <v-toolbar-title v-text="title" />
       <v-spacer />
-      <user-menu></user-menu>
+      <!-- <user-menu></user-menu> -->
     </v-app-bar>
     <v-main>
       <nuxt style="min-height: 100vh;" />
@@ -40,10 +40,10 @@
 
 <script>
 import { mdiSprout, mdiInformation } from '@mdi/js'
-import UserMenu from '@/components/UserMenu.vue'
+// import UserMenu from '@/components/UserMenu.vue'
 export default {
   components: {
-    UserMenu,
+    // UserMenu,
   },
   data() {
     return {

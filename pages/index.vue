@@ -18,8 +18,10 @@
             <v-carousel-item
               v-for="(item, i) in items"
               :key="i"
-              dark
-              :src="require(`@/assets/img/species/${item.src}`)"
+              :src="
+                require(`@/assets/img/species/${item.src}?resize&max=1785&min=320&steps=6&placeholder&lqip`)
+                  .src
+              "
               reverse-transition="fade-transition"
               transition="fade-transition"
             ></v-carousel-item>
