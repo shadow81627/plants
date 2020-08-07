@@ -30,7 +30,7 @@
       <user-menu></user-menu>
     </v-app-bar>
     <v-main>
-      <nuxt />
+      <nuxt style="min-height: 100vh;" />
       <v-footer>
         <span>&copy; {{ new Date().getFullYear() }}</span>
       </v-footer>
@@ -39,7 +39,7 @@
 </template>
 
 <script>
-import { mdiSprout } from '@mdi/js'
+import { mdiSprout, mdiInformation } from '@mdi/js'
 import UserMenu from '@/components/UserMenu.vue'
 export default {
   components: {
@@ -49,6 +49,11 @@ export default {
     return {
       drawer: false,
       items: [
+        {
+          icon: mdiInformation,
+          title: 'About',
+          to: '/',
+        },
         {
           icon: mdiSprout,
           title: 'Species',

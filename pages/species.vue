@@ -2,7 +2,7 @@
   <v-container>
     <v-row>
       <v-col>
-        <h1>Plant Species</h1>
+        <h1>Brisbane Native Plant Species</h1>
       </v-col>
     </v-row>
     <v-row>
@@ -17,12 +17,26 @@
       >
         <v-card class="flex d-flex flex-column justify-between">
           <v-img
+            :lazy-src="
+              item.Image
+                ? require(`@/assets/img/species/${item.Image}?lqip&resize&sizes=256`)
+                    .src
+                : null
+            "
             :src="
-              item.Image ? require(`@/assets/img/species/${item.Image}`) : null
+              item.Image
+                ? require(`@/assets/img/species/${item.Image}?lqip&resize&sizes=256`)
+                    .src
+                : null
             "
             height="256"
-          ></v-img>
-          <!-- <div> -->
+            :src-set="
+              item.Image
+                ? require(`@/assets/img/species/${item.Image}?webp&resize&sizes[]=256&sizes[]=512&sizes[]=768`)
+                    .srcSet
+                : null
+            "
+          />
           <v-card-title>
             {{ item.Species.split('(')[0].trim() }}
           </v-card-title>
@@ -32,7 +46,6 @@
           <v-card-subtitle>
             {{ truncate(item['Description and growing requirements']) }}
           </v-card-subtitle>
-          <!-- </div> -->
 
           <div>
             <v-card-subtitle class="pb-0">Category</v-card-subtitle>

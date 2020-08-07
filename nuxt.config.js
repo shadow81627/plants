@@ -18,7 +18,7 @@ export default {
    */
   head: {
     titleTemplate: (titleChunk) => {
-      const defaultTitle = 'Free Native Plants'
+      const defaultTitle = 'Brisbane City Council Free Native Plants'
       // If undefined or blank then we don't need the seperator
       return titleChunk ? `${titleChunk} | ${defaultTitle}` : defaultTitle
     },
@@ -32,7 +32,7 @@ export default {
       {
         property: 'og:title',
         template: (titleChunk) => {
-          const defaultTitle = 'Free Native Plants'
+          const defaultTitle = 'Brisbane City Council Free Native Plants'
           // If undefined or blank then we don't need the hyphen
           return titleChunk ? `${titleChunk} - ${defaultTitle}` : defaultTitle
         },
@@ -87,6 +87,7 @@ export default {
     // Doc: https://github.com/nuxt-community/stylelint-module
     '@nuxtjs/stylelint-module',
     '@nuxtjs/vuetify',
+    '@aceforth/nuxt-optimized-images',
   ],
   /*
    ** Nuxt.js modules
@@ -145,6 +146,13 @@ export default {
           success: colors.green.accent3,
         },
       },
+    },
+  },
+  optimizedImages: {
+    optimizeImages: true,
+    optimizeImagesInDev: true,
+    mozjpeg: {
+      quality: 50,
     },
   },
   /*
