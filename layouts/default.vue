@@ -39,7 +39,7 @@
 </template>
 
 <script>
-import { mdiSprout, mdiInformation } from '@mdi/js'
+import { mdiSprout, mdiInformation, mdiStore } from '@mdi/js'
 // import UserMenu from '@/components/UserMenu.vue'
 export default {
   components: {
@@ -58,6 +58,11 @@ export default {
           icon: mdiSprout,
           title: 'Species',
           to: '/species',
+        },
+        {
+          icon: mdiStore,
+          title: 'Nurseries',
+          to: '/nurseries',
         },
       ],
       title: 'Free Native Plants',
