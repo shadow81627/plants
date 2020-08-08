@@ -9,6 +9,8 @@
       :items="list"
       hide-default-footer
       :loading="$fetchState.pending"
+      :items-per-page="-1"
+      item-key="Species"
     >
       <template v-slot:default="{ items }">
         <v-row>
