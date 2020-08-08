@@ -77,9 +77,9 @@ export default {
       body
         .filter((item) => item.Image)
         .map((item) => ({
-          name: item.Species,
-          src: item.Image,
-          credit: item['Image Credit'],
+          name: item.species,
+          src: item.image,
+          credit: item.credit,
         }))
     )
     this.items = result
