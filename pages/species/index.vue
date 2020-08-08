@@ -46,7 +46,11 @@
             lg="3"
             class="d-flex flex-column"
           >
-            <v-card class="flex d-flex flex-column justify-between">
+            <v-card
+              class="flex d-flex flex-column justify-between"
+              :to="item.species"
+              append
+            >
               <v-img
                 :lazy-src="
                   item.image
