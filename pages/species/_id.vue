@@ -25,23 +25,26 @@
             "
             dark
           >
-            <v-container class="fill-height align-items-end justify-start pb-0">
+            <v-container
+              v-if="$vuetify.breakpoint.lgAndUp"
+              class="fill-height align-items-end justify-start pb-0"
+            >
               <v-row class="align-self-end pb-0" align="end" justify="start">
                 <v-col class="pa-0">
                   <v-card style="background: rgba(0, 0, 0, 0.3);">
-                    <v-card-title v-if="$vuetify.breakpoint.smAndUp">
+                    <v-card-title>
                       <h1 class="text-break text-wrap">{{ item.species }}</h1>
                     </v-card-title>
-                    <v-card-text class="caption text-no-wrap">
+                    <!-- <v-card-text class="caption text-no-wrap">
                       {{ item.credit }}
-                    </v-card-text>
+                    </v-card-text> -->
                   </v-card>
                 </v-col>
               </v-row>
             </v-container>
           </v-img>
 
-          <div v-if="$vuetify.breakpoint.smAndDown">
+          <div v-if="$vuetify.breakpoint.mdAndDown">
             <v-card-title>
               {{ item.species.split('(')[0].trim() }}
             </v-card-title>
@@ -59,6 +62,7 @@
             <v-card-text class="text--primary">
               {{ item.type }}
             </v-card-text>
+
             <template v-if="item.attracts">
               <v-card-subtitle class="pb-0">
                 Attracts
@@ -74,6 +78,19 @@
               </v-card-text>
             </template>
           </div>
+
+          <v-card-subtitle class="pb-0">Image License</v-card-subtitle>
+          <v-card-text class="text--primary">
+            {{ item.credit }}
+          </v-card-text>
+
+          <v-card-actions>
+            <v-spacer></v-spacer>
+            <v-btn color="primary" text to="/nurseries">
+              See Nurseries
+              <v-icon>{{ mdiArrowRight }}</v-icon>
+            </v-btn>
+          </v-card-actions>
         </v-card>
       </v-col>
     </v-row>
@@ -81,6 +98,7 @@
 </template>
 
 <script>
+import { mdiArrowRight } from '@mdi/js'
 import { startCase } from 'lodash-es'
 export default {
   async asyncData(context) {
@@ -95,6 +113,7 @@ export default {
   },
   data: () => ({
     item: {},
+    mdiArrowRight,
   }),
   methods: {
     startCase,
