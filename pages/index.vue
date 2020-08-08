@@ -75,7 +75,7 @@ export default {
     const { body } = content
     const result = shuffle(
       body
-        .filter((item) => item.Image)
+        .filter((item) => item.image)
         .map((item) => ({
           name: item.species,
           src: item.image,
