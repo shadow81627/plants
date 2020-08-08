@@ -1,6 +1,12 @@
 import colors from 'vuetify/es5/util/colors'
 import pkg from './package'
 
+const env = {
+  VERSION: pkg.version,
+  COMMIT: process.env.npm_package_gitHead,
+  DATE_GENERATED: new Date().toUTCString(),
+}
+
 export default {
   /*
    ** Nuxt rendering mode
@@ -12,6 +18,11 @@ export default {
    ** See https://nuxtjs.org/api/configuration-target
    */
   target: 'static',
+
+  publicRuntimeConfig: {
+    ...env,
+  },
+
   /*
    ** Headers of the page
    ** See https://nuxtjs.org/api/configuration-head

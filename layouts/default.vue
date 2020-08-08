@@ -32,7 +32,78 @@
     <v-main>
       <nuxt style="min-height: 100vh;" />
       <v-footer>
-        <span>&copy; {{ new Date().getFullYear() }}</span>
+        <v-container>
+          <v-row no-gutters>
+            <v-col cols="auto">
+              <v-card flat color="transparent">
+                <v-card-text>
+                  <span>{{ $config.VERSION }}</span>
+                  <span v-if="commit">{{
+                    shortHash($config.COMMIT || $config.TRAVIS_COMMIT)
+                  }}</span>
+                  <span
+                    v-if="
+                      $config.VERSION &&
+                      ($config.COMMIT || $config.TRAVIS_COMMIT)
+                    "
+                    >|</span
+                  >
+                  <nuxt-link to="/releases">
+                    <span>Changelog</span>
+                  </nuxt-link>
+                </v-card-text>
+              </v-card>
+            </v-col>
+            <v-spacer />
+            <v-col cols="auto">
+              <v-card flat color="transparent">
+                <v-card-text>
+                  <span
+                    >This site is protected by reCAPTCHA and the Google</span
+                  >
+                  <a href="https://policies.google.com/privacy"
+                    >Privacy Policy</a
+                  >
+                  <span>and</span>
+                  <a href="https://policies.google.com/terms"
+                    >Terms of Service</a
+                  >
+                  <span>apply.</span>
+                </v-card-text>
+              </v-card>
+            </v-col>
+          </v-row>
+          <v-row no-gutters>
+            <v-col cols="auto">
+              <v-card flat tile color="transparent">
+                <v-card-text class="py-2 text-left">
+                  <div>
+                    <!-- <nuxt-link to="/">About</nuxt-link> -->
+                    <!-- <span> |</span>
+                    <nuxt-link to="/contact">Contact</nuxt-link> |
+                    <nuxt-link to="/newsletter">Newsletter</nuxt-link> -->
+                  </div>
+                  <span>Made with </span>
+                  <span>🌱</span>
+                  <span> in Brisbane, Australia</span>
+                  <br />
+                  <span
+                    >© 2020 |
+                    <a href="https://daim.dev">Damien Robinson</a></span
+                  >
+                </v-card-text>
+              </v-card>
+            </v-col>
+            <v-spacer />
+            <v-col v-if="$config.DATE_GENERATED" cols="auto">
+              <v-card flat tile color="transparent">
+                <v-card-text
+                  >Last modified {{ $config.DATE_GENERATED }}</v-card-text
+                >
+              </v-card>
+            </v-col>
+          </v-row>
+        </v-container>
       </v-footer>
     </v-main>
   </v-app>
@@ -67,6 +138,9 @@ export default {
       ],
       title: 'Free Native Plants',
     }
+  },
+  methods: {
+    shortHash: (value) => (value ? value.substring(0, 7) : null),
   },
 }
 </script>
