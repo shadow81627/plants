@@ -98,8 +98,16 @@
             <v-col v-if="$config.DATE_GENERATED" cols="auto">
               <v-card flat tile color="transparent">
                 <v-card-text
-                  >Last modified {{ $config.DATE_GENERATED }}</v-card-text
-                >
+                  >Last modified
+                  <v-tooltip top>
+                    <span>{{ lastModified.toString() }}</span>
+                    <template v-slot:activator="{ on, attrs }">
+                      <span v-bind="attrs" v-on="on">{{
+                        lastModified.toRelative()
+                      }}</span>
+                    </template>
+                  </v-tooltip>
+                </v-card-text>
               </v-card>
             </v-col>
           </v-row>
@@ -110,6 +118,7 @@
 </template>
 
 <script>
+import { DateTime } from 'luxon'
 import { mdiSprout, mdiInformation, mdiStore } from '@mdi/js'
 // import UserMenu from '@/components/UserMenu.vue'
 export default {
@@ -138,6 +147,11 @@ export default {
       ],
       title: 'Free Native Plants',
     }
+  },
+  computed: {
+    lastModified() {
+      return DateTime.fromISO(this.$config.DATE_GENERATED)
+    },
   },
   methods: {
     shortHash: (value) => (value ? value.substring(0, 7) : null),
