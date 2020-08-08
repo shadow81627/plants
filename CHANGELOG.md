@@ -1,5 +1,12 @@
 # Releases
 
+## [1.0.1](https://github.com/shadow81627/brisbane-city-council-free-native-plants/compare/v1.0.0...v1.0.1) (2020-08-08)
+
+### Bug Fixes
+
+- **footer:** check commit config rather than variable ([9d77381](https://github.com/shadow81627/brisbane-city-council-free-native-plants/commit/9d77381627a92bcddc0aa2d3c8050406e7777fee))
+- **species:** items per page all ([4264de8](https://github.com/shadow81627/brisbane-city-council-free-native-plants/commit/4264de8d0b7d1a7db1ad6571a210a4de8ded8669))
+
 ## 1.0.0 (2020-08-07)
 
 ### Bug Fixes
