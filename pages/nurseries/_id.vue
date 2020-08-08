@@ -2,19 +2,11 @@
   <v-container>
     <v-row>
       <v-col>
-        <h1>Nurseries</h1>
+        <h1>{{ item.Nursery }}</h1>
       </v-col>
     </v-row>
     <v-row>
-      <v-col
-        v-for="(item, index) in items"
-        :key="index"
-        cols="12"
-        sm="6"
-        md="4"
-        lg="3"
-        class="d-flex flex-column"
-      >
+      <v-col class="d-flex flex-column">
         <v-card class="flex d-flex flex-column justify-between">
           <!-- <v-img
             :lazy-src="
@@ -73,13 +65,18 @@
 <script>
 import { startCase } from 'lodash-es'
 export default {
-  async fetch() {
-    const result = await this.$content('nurseries').fetch()
-    const { body } = result
-    this.items = body
+  async asyncData(context) {
+    try {
+      const id = context.route.params.id
+      const result = await context.$content('nurseries').fetch()
+      const { body } = result
+      return { item: body.find((item) => item.Nursery === id) }
+    } catch {
+      context.error({ statusCode: 404 })
+    }
   },
   data: () => ({
-    items: [],
+    item: {},
   }),
   methods: {
     startCase,
@@ -89,7 +86,7 @@ export default {
   },
   head() {
     return {
-      title: 'Nurseries',
+      title: this.item.Nursery,
     }
   },
 }
