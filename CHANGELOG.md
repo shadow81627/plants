@@ -1,5 +1,16 @@
 # Releases
 
+## [1.1.0](https://github.com/shadow81627/brisbane-city-council-free-native-plants/compare/v1.0.1...v1.1.0) (2020-08-08)
+
+### Bug Fixes
+
+- **home:** carousel image filter attribute name typo ([8f71f70](https://github.com/shadow81627/brisbane-city-council-free-native-plants/commit/8f71f7070a611cc8419eb8ae20f5d9c8c6681871))
+- **species:** normalize attracts ([3af796d](https://github.com/shadow81627/brisbane-city-council-free-native-plants/commit/3af796dadaae1df41c53195dee89f56480acef46))
+
+### Features
+
+- **species:** filter by category and attracts ([e6e0206](https://github.com/shadow81627/brisbane-city-council-free-native-plants/commit/e6e0206d8bba8f46465c1c1605e3c78f6eb494a9))
+
 ## [1.0.1](https://github.com/shadow81627/brisbane-city-council-free-native-plants/compare/v1.0.0...v1.0.1) (2020-08-08)
 
 ### Bug Fixes
