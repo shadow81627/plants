@@ -1,5 +1,13 @@
 # Releases
 
+## [1.2.0](https://github.com/shadow81627/brisbane-city-council-free-native-plants/compare/v1.1.0...v1.2.0) (2020-08-08)
+
+### Features
+
+- **nurseries:** add details page ([347030f](https://github.com/shadow81627/brisbane-city-council-free-native-plants/commit/347030f0582b75fa2468169571d1965770d2a08b))
+- **nurseries:** add map ([892e458](https://github.com/shadow81627/brisbane-city-council-free-native-plants/commit/892e458b0d55625c24b9cb1b827b74ceb16b1bdf))
+- **species:** details page ([65b6486](https://github.com/shadow81627/brisbane-city-council-free-native-plants/commit/65b6486d7f62989b215b20f506698d812f91e0fd))
+
 ## [1.1.0](https://github.com/shadow81627/brisbane-city-council-free-native-plants/compare/v1.0.1...v1.1.0) (2020-08-08)
 
 ### Bug Fixes
