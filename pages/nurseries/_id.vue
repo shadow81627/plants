@@ -30,32 +30,45 @@
                 : null
             "
           /> -->
-          <v-card-title class="text-break text-wrap">
-            {{ item.Nursery }}
-          </v-card-title>
-          <v-card-subtitle class="flex-grow-1">
-            {{ item.Address }}
-          </v-card-subtitle>
+          <v-card-subtitle class="pb-0">Address</v-card-subtitle>
+          <v-card-text class="flex-grow-1">
+            <v-btn
+              icon
+              :href="`https://www.google.com.au/maps/search/?api=1&query=${item.Address}`"
+              target="_blank"
+            >
+              <v-icon>{{ mdiMapMarker }}</v-icon>
+            </v-btn>
+            <span>{{ item.Address }}</span>
+          </v-card-text>
 
           <div>
             <v-card-subtitle class="pb-0">Contact number</v-card-subtitle>
             <v-card-text class="text--primary">
-              {{ item['Contact number'] }}
+              <v-btn
+                icon
+                :href="`tel:${item['Contact number']}`"
+                target="_blank"
+              >
+                <v-icon>{{ mdiPhone }}</v-icon>
+              </v-btn>
+              <span>{{ item['Contact number'] }}</span>
             </v-card-text>
-            <template v-if="item.Attracts">
-              <v-card-subtitle class="pb-0">
-                Attracts
-              </v-card-subtitle>
-              <v-card-text>
-                <!-- <v-chip
-                  v-for="attract in item.Attracts.split(',').sort()"
-                  :key="attract"
-                >
-                  {{ startCase(attract) }}
-                </v-chip> -->
-              </v-card-text>
-            </template>
           </div>
+
+          <v-card-actions>
+            <v-spacer></v-spacer>
+          </v-card-actions>
+        </v-card>
+      </v-col>
+    </v-row>
+    <v-row>
+      <v-col>
+        <v-card>
+          <map-box
+            :lat="Number(item.LATITUDE)"
+            :lng="Number(item.LONGITUDE)"
+          ></map-box>
         </v-card>
       </v-col>
     </v-row>
@@ -63,8 +76,13 @@
 </template>
 
 <script>
+import { mdiMapMarker, mdiPhone } from '@mdi/js'
 import { startCase } from 'lodash-es'
+import MapBox from '@/components/MapBox'
 export default {
+  components: {
+    MapBox,
+  },
   async asyncData(context) {
     try {
       const id = context.route.params.id
@@ -77,6 +95,8 @@ export default {
   },
   data: () => ({
     item: {},
+    mdiMapMarker,
+    mdiPhone,
   }),
   methods: {
     startCase,

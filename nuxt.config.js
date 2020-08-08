@@ -5,6 +5,8 @@ const env = {
   VERSION: pkg.version,
   COMMIT: process.env.npm_package_gitHead,
   DATE_GENERATED: new Date().toUTCString(),
+  MAPBOX_TOKEN:
+    'pk.eyJ1IjoiZGFtaWVucm9iaW5zb24iLCJhIjoiY2tkbDdoMndhMDBqNjJ6cDhkbWg0ZnZ3cSJ9._xNEQMD1mzKuKyb8imU0Ng',
 }
 
 export default {

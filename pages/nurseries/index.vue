@@ -54,19 +54,6 @@
             <v-card-text class="text--primary">
               {{ item['Contact number'] }}
             </v-card-text>
-            <template v-if="item.Attracts">
-              <v-card-subtitle class="pb-0">
-                Attracts
-              </v-card-subtitle>
-              <v-card-text>
-                <!-- <v-chip
-                  v-for="attract in item.Attracts.split(',').sort()"
-                  :key="attract"
-                >
-                  {{ startCase(attract) }}
-                </v-chip> -->
-              </v-card-text>
-            </template>
           </div>
         </v-card>
       </v-col>
