@@ -20,41 +20,33 @@
           :to="item.Nursery"
           append
         >
-          <!-- <v-img
-            :lazy-src="
-              item.Image
-                ? require(`@/assets/img/species/${item.Image}?resize&size=256&lqip&placeholder`)
-                    .src
-                : null
-            "
-            :src="
-              item.Image
-                ? require(`@/assets/img/species/${item.Image}?resize&size=256&lqip&placeholder`)
-                    .src
-                : null
-            "
-            height="256"
-            max-height="256"
-            :src-set="
-              item.Image
-                ? require(`@/assets/img/species/${item.Image}?resize&sizes[]=256&sizes[]=512&sizes[]=768&webp&placeholder`)
-                    .srcSet
-                : null
-            "
-          /> -->
           <v-card-title class="text-break text-wrap">
             {{ item.Nursery }}
           </v-card-title>
-          <v-card-subtitle class="flex-grow-1">
-            {{ item.Address }}
-          </v-card-subtitle>
-
-          <div>
-            <v-card-subtitle class="pb-0">Contact number</v-card-subtitle>
-            <v-card-text class="text--primary">
-              {{ item['Contact number'] }}
-            </v-card-text>
-          </div>
+          <v-list>
+            <v-list-item>
+              <v-list-item-icon>
+                <v-icon>{{ mdiMapMarker }}</v-icon>
+              </v-list-item-icon>
+              <v-list-item-content>
+                <v-list-item-title class="text-break text-wrap">
+                  <span>{{ item.Address }}</span>
+                </v-list-item-title>
+                <v-list-item-subtitle>Address</v-list-item-subtitle>
+              </v-list-item-content>
+            </v-list-item>
+            <v-list-item>
+              <v-list-item-icon>
+                <v-icon>{{ mdiPhone }}</v-icon>
+              </v-list-item-icon>
+              <v-list-item-content>
+                <v-list-item-title>
+                  <span>{{ item['Contact number'] }}</span>
+                </v-list-item-title>
+                <v-list-item-subtitle>Contact number</v-list-item-subtitle>
+              </v-list-item-content>
+            </v-list-item>
+          </v-list>
         </v-card>
       </v-col>
     </v-row>
@@ -62,6 +54,7 @@
 </template>
 
 <script>
+import { mdiMapMarker, mdiPhone } from '@mdi/js'
 import { startCase } from 'lodash-es'
 export default {
   async fetch() {
@@ -71,6 +64,8 @@ export default {
   },
   data: () => ({
     items: [],
+    mdiMapMarker,
+    mdiPhone,
   }),
   methods: {
     startCase,

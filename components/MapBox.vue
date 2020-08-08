@@ -10,19 +10,21 @@ export default {
     lat: { type: Number, required: true },
   },
   mounted() {
-    // TO MAKE THE MAP APPEAR YOU MUST
-    // ADD YOUR ACCESS TOKEN FROM
-    // https://account.mapbox.com
-    mapboxgl.accessToken = this.$config.MAPBOX_TOKEN
-    const map = new mapboxgl.Map({
-      container: 'map',
-      style: 'mapbox://styles/mapbox/streets-v11', // stylesheet location
-      center: [this.lng, this.lat], // starting position [lng, lat]
-      zoom: 13, // starting zoom
-    })
+    if (this.$config.MAPBOX_TOKEN) {
+      // TO MAKE THE MAP APPEAR YOU MUST
+      // ADD YOUR ACCESS TOKEN FROM
+      // https://account.mapbox.com
+      mapboxgl.accessToken = this.$config.MAPBOX_TOKEN
+      const map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v11', // stylesheet location
+        center: [this.lng, this.lat], // starting position [lng, lat]
+        zoom: 13, // starting zoom
+      })
 
-    // const marker =
-    new mapboxgl.Marker().setLngLat([this.lng, this.lat]).addTo(map)
+      // const marker =
+      new mapboxgl.Marker().setLngLat([this.lng, this.lat]).addTo(map)
+    }
   },
   head() {
     return {
