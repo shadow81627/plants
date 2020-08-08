@@ -38,7 +38,7 @@
               <v-card flat color="transparent">
                 <v-card-text>
                   <span>{{ $config.VERSION }}</span>
-                  <span v-if="commit">{{
+                  <span v-if="($config.COMMIT || $config.TRAVIS_COMMIT)">{{
                     shortHash($config.COMMIT || $config.TRAVIS_COMMIT)
                   }}</span>
                   <span
