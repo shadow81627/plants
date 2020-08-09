@@ -1,5 +1,11 @@
 # Releases
 
+## [1.2.2](https://github.com/shadow81627/brisbane-city-council-free-native-plants/compare/v1.2.1...v1.2.2) (2020-08-09)
+
+### Bug Fixes
+
+- **nurseries:** align contact number start rather than end ([67f13f4](https://github.com/shadow81627/brisbane-city-council-free-native-plants/commit/67f13f451698898d6e02cc62b04f6713c12c93c1))
+
 ## [1.2.1](https://github.com/shadow81627/brisbane-city-council-free-native-plants/compare/v1.2.0...v1.2.1) (2020-08-09)
 
 ### Bug Fixes
