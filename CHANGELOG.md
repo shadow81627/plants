@@ -1,5 +1,12 @@
 # Releases
 
+## [1.2.1](https://github.com/shadow81627/brisbane-city-council-free-native-plants/compare/v1.2.0...v1.2.1) (2020-08-09)
+
+### Bug Fixes
+
+- **footer:** update last modified on enter view port ([af28543](https://github.com/shadow81627/brisbane-city-council-free-native-plants/commit/af28543e69cb348006c82fa5899f29128bf9bdca))
+- **home:** remove carousel fade transition ([bd98026](https://github.com/shadow81627/brisbane-city-council-free-native-plants/commit/bd980261b4a13c2a36ac567240397b0747099261))
+
 ## [1.2.0](https://github.com/shadow81627/brisbane-city-council-free-native-plants/compare/v1.1.0...v1.2.0) (2020-08-08)
 
 ### Features
