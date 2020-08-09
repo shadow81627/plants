@@ -24,7 +24,14 @@
       </v-list>
     </v-navigation-drawer>
     <v-app-bar :clipped-left="$vuetify.breakpoint.lgAndUp" fixed app>
-      <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
+      <v-app-bar-nav-icon aria-label="menu" @click.stop="drawer = !drawer">
+        <v-progress-circular
+          v-if="loading"
+          indeterminate
+          size="18"
+          width="2"
+        ></v-progress-circular>
+      </v-app-bar-nav-icon>
       <v-toolbar-title v-text="title" />
       <v-spacer />
       <!-- <user-menu></user-menu> -->
@@ -128,6 +135,7 @@ export default {
   data() {
     return {
       drawer: false,
+      loading: true,
       items: [
         {
           icon: mdiInformation,
@@ -147,6 +155,12 @@ export default {
       ],
       title: 'Free Native Plants',
       lastModified: DateTime.fromISO(this.$config.DATE_GENERATED),
+    }
+  },
+  mounted() {
+    // eslint-disable-next-line nuxt/no-env-in-hooks
+    if (process.client) {
+      this.loading = false
     }
   },
   methods: {
