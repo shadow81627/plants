@@ -53,9 +53,9 @@
             }}</v-card-subtitle>
           </div>
 
-          <v-card-subtitle class="flex-grow-1">
+          <v-card-text class="flex-grow-1 text--primary">
             {{ item.description }}
-          </v-card-subtitle>
+          </v-card-text>
 
           <div>
             <v-card-subtitle class="pb-0">Category</v-card-subtitle>

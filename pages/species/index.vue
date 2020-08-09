@@ -46,11 +46,7 @@
             lg="3"
             class="d-flex flex-column"
           >
-            <v-card
-              class="flex d-flex flex-column justify-between"
-              :to="item.species"
-              append
-            >
+            <v-card class="flex d-flex flex-column justify-between">
               <v-img
                 :lazy-src="
                   item.image
@@ -101,6 +97,21 @@
                       {{ startCase(attract) }}
                     </v-chip>
                   </v-card-text>
+                  <v-card-actions class="pa-0 flex-grow-1">
+                    <v-btn
+                      color="#e0e0e0"
+                      :to="item.species"
+                      append
+                      small
+                      block
+                      width="100%"
+                      class="d-flex flex-grow-1 flex-wrap"
+                    >
+                      <span class="text-break text-wrap d-flex flex-wrap"
+                        >More on {{ item.species.split('(')[0].trim() }}</span
+                      >
+                    </v-btn>
+                  </v-card-actions>
                 </template>
               </div>
             </v-card>

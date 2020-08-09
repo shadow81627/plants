@@ -20,22 +20,27 @@
           :to="item.Nursery"
           append
         >
-          <v-card-title class="text-break text-wrap">
-            {{ item.Nursery }}
-          </v-card-title>
-          <v-list>
-            <v-list-item>
+          <div class="flex-grow-1">
+            <v-card-title class="text-break text-wrap">
+              {{ item.Nursery }}
+            </v-card-title>
+          </div>
+
+          <v-list class="flex-grow-1 d-flex flex-column justify-between">
+            <v-list-item three-line>
               <v-list-item-icon>
                 <v-icon>{{ mdiMapMarker }}</v-icon>
               </v-list-item-icon>
-              <v-list-item-content>
+              <v-list-item-content class="d-flex justify-between">
                 <v-list-item-title class="text-break text-wrap">
                   <span>{{ item.Address }}</span>
                 </v-list-item-title>
-                <v-list-item-subtitle>Address</v-list-item-subtitle>
+                <v-list-item-subtitle class="align-self-end"
+                  >Address</v-list-item-subtitle
+                >
               </v-list-item-content>
             </v-list-item>
-            <v-list-item>
+            <v-list-item class="align-self-end" three-line>
               <v-list-item-icon>
                 <v-icon>{{ mdiPhone }}</v-icon>
               </v-list-item-icon>

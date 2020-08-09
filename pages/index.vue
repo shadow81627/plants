@@ -41,7 +41,7 @@
               "
               reverse-transition="fade-transition"
               transition="fade-transition"
-              to="/species"
+              :to="`/species/${item.name}`"
             >
               <v-container
                 class="fill-height align-items-end justify-start pb-0"

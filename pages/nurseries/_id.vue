@@ -10,8 +10,25 @@
         <v-card>
           <v-list>
             <v-list-item
+              v-if="item.url"
+              :href="item.url"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <v-list-item-icon>
+                <v-icon>{{ mdiWeb }}</v-icon>
+              </v-list-item-icon>
+              <v-list-item-content>
+                <v-list-item-title>
+                  <span>{{ item.url }}</span>
+                </v-list-item-title>
+                <v-list-item-subtitle>Website</v-list-item-subtitle>
+              </v-list-item-content>
+            </v-list-item>
+            <v-list-item
               :href="`https://www.google.com.au/maps/search/?api=1&query=${item.Address}`"
               target="_blank"
+              rel="noreferrer"
             >
               <v-list-item-icon>
                 <v-icon>{{ mdiMapMarker }}</v-icon>
@@ -52,7 +69,7 @@
 </template>
 
 <script>
-import { mdiMapMarker, mdiPhone } from '@mdi/js'
+import { mdiMapMarker, mdiPhone, mdiWeb } from '@mdi/js'
 import { startCase } from 'lodash-es'
 import MapBox from '@/components/MapBox'
 export default {
@@ -73,6 +90,7 @@ export default {
     item: {},
     mdiMapMarker,
     mdiPhone,
+    mdiWeb,
   }),
   methods: {
     startCase,
