@@ -52,7 +52,7 @@
                 append
                 tile
                 flat
-                class="flex-grow-1"
+                class="flex d-flex flex-column justify-between flex-grow-1"
                 :ripple="false"
               >
                 <v-img
@@ -86,10 +86,12 @@
                 <v-card-subtitle class="flex-grow-1">
                   {{ truncate(item.description) }}
                 </v-card-subtitle>
-                <v-card-subtitle class="pb-0">Category</v-card-subtitle>
-                <v-card-text class="text--primary">
-                  {{ item.type }}
-                </v-card-text>
+                <div class="flex-shrink-1">
+                  <v-card-subtitle class="pb-0">Category</v-card-subtitle>
+                  <v-card-text class="text--primary">
+                    {{ item.type }}
+                  </v-card-text>
+                </div>
               </v-card>
 
               <div class="flex-shrink-1">
@@ -118,12 +120,11 @@
                       append
                       small
                       block
+                      tile
                       width="100%"
-                      class="d-flex flex-grow-1 flex-wrap"
                     >
-                      <span class="text-break text-wrap d-flex flex-wrap"
-                        >More on {{ item.species.split('(')[0].trim() }}</span
-                      >
+                      Read more
+                      <v-icon small absolute>{{ mdiArrowRight }}</v-icon>
                     </v-btn>
                   </v-card-actions>
                 </template>
@@ -137,6 +138,7 @@
 </template>
 
 <script>
+import { mdiArrowRight } from '@mdi/js'
 import { startCase, uniq, debounce, flatten } from 'lodash-es'
 export default {
   async fetch() {
@@ -163,6 +165,7 @@ export default {
   data: () => ({
     list: [],
     content: [],
+    mdiArrowRight,
   }),
   computed: {
     types() {
