@@ -6,8 +6,7 @@
           <v-img
             :lazy-src="
               item.image
-                ? require(`@/assets/img/species/${item.image}?resize&sizes[]=1785&placeholder&lqip`)
-                    .src
+                ? require(`@/assets/img/species/${item.image}?lqip`)
                 : null
             "
             :src="
@@ -23,6 +22,9 @@
                     .srcSet
                 : null
             "
+            :style="{
+              backgroundColor: require(`@/assets/img/species/${item.image}?lqip-colors`)[0],
+            }"
             dark
           >
             <v-container
