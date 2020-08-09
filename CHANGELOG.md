@@ -1,5 +1,12 @@
 # Releases
 
+## [1.3.1](https://github.com/shadow81627/brisbane-city-council-free-native-plants/compare/v1.3.0...v1.3.1) (2020-08-09)
+
+### Bug Fixes
+
+- **footer:** darken anchor color for aaa contrast ratio ([cc2dcc3](https://github.com/shadow81627/brisbane-city-council-free-native-plants/commit/cc2dcc3b5c312c184ae6e8ad384d87a282ea21cd))
+- **layout:** app bar nav icon aria label ([c4e127e](https://github.com/shadow81627/brisbane-city-council-free-native-plants/commit/c4e127e645a8633e3d6ae0b6b69762f09fe9a156))
+
 ## [1.3.0](https://github.com/shadow81627/brisbane-city-council-free-native-plants/compare/v1.2.2...v1.3.0) (2020-08-09)
 
 ### Features
