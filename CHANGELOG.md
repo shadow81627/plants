@@ -1,5 +1,11 @@
 # Releases
 
+## [1.3.0](https://github.com/shadow81627/brisbane-city-council-free-native-plants/compare/v1.2.2...v1.3.0) (2020-08-09)
+
+### Features
+
+- **images:** lqip-colors ([4366dd6](https://github.com/shadow81627/brisbane-city-council-free-native-plants/commit/4366dd6ab6cc0e541a2a7709ff95087e3e218ccb))
+
 ## [1.2.2](https://github.com/shadow81627/brisbane-city-council-free-native-plants/compare/v1.2.1...v1.2.2) (2020-08-09)
 
 ### Bug Fixes
