@@ -40,7 +40,7 @@
                 >
               </v-list-item-content>
             </v-list-item>
-            <v-list-item class="align-self-end" three-line>
+            <v-list-item three-line>
               <v-list-item-icon>
                 <v-icon>{{ mdiPhone }}</v-icon>
               </v-list-item-icon>
