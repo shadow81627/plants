@@ -22,46 +22,42 @@
     </v-row>
     <v-row>
       <v-col>
-        <v-sheet color="secondary">
-          <v-carousel cycle hide-delimiters>
-            <v-carousel-item
-              v-for="(item, i) in items"
-              :key="i"
-              :lazy-src="
-                require(`@/assets/img/species/${item.src}?resize&size=1785&placeholder&lqip`)
-                  .src
-              "
-              :src="
-                require(`@/assets/img/species/${item.src}?resize&size=1785&placeholder`)
-                  .src
-              "
-              :src-set="
-                require(`@/assets/img/species/${item.src}?resize&max=1785&min=320&steps=6`)
-                  .srcSet
-              "
-              reverse-transition="fade-transition"
-              transition="fade-transition"
-              :to="`/species/${item.name}`"
-            >
-              <v-container
-                class="fill-height align-items-end justify-start pb-0"
-              >
-                <v-row class="align-self-end pb-0" align="end" justify="start">
-                  <v-col class="pa-0">
-                    <v-card style="background: rgba(0, 0, 0, 0.3);">
-                      <v-card-text class="pb-0">
-                        {{ item.name }}
-                      </v-card-text>
-                      <v-card-text class="caption text-no-wrap">
-                        {{ item.credit }}
-                      </v-card-text>
-                    </v-card>
-                  </v-col>
-                </v-row>
-              </v-container>
-            </v-carousel-item>
-          </v-carousel>
-        </v-sheet>
+        <v-carousel cycle hide-delimiters>
+          <v-carousel-item
+            v-for="(item, i) in items"
+            :key="i"
+            eager
+            height="500"
+            :lazy-src="
+              require(`@/assets/img/species/${item.src}?resize&size=1785&placeholder&lqip`)
+                .src
+            "
+            :src="
+              require(`@/assets/img/species/${item.src}?resize&size=1785&placeholder`)
+                .src
+            "
+            :src-set="
+              require(`@/assets/img/species/${item.src}?resize&max=1785&min=320&steps=6`)
+                .srcSet
+            "
+            :to="`/species/${item.name}`"
+          >
+            <v-container class="fill-height align-items-end justify-start pb-0">
+              <v-row class="align-self-end pb-0" align="end" justify="start">
+                <v-col class="pa-0">
+                  <v-card style="background: rgba(0, 0, 0, 0.3);">
+                    <v-card-text class="pb-0">
+                      {{ item.name }}
+                    </v-card-text>
+                    <v-card-text class="caption">
+                      {{ item.credit }}
+                    </v-card-text>
+                  </v-card>
+                </v-col>
+              </v-row>
+            </v-container>
+          </v-carousel-item>
+        </v-carousel>
       </v-col>
     </v-row>
   </v-container>
