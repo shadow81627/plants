@@ -46,44 +46,53 @@
             lg="3"
             class="d-flex flex-column"
           >
-            <v-card class="flex d-flex flex-column justify-between">
-              <v-img
-                :lazy-src="
-                  item.image
-                    ? require(`@/assets/img/species/${item.image}?resize&sizes[]=256&placeholder&lqip`)
-                        .src
-                    : null
-                "
-                :src="
-                  item.image
-                    ? require(`@/assets/img/species/${item.image}?resize&sizes[]=256&placeholder`)
-                        .src
-                    : null
-                "
-                height="256"
-                max-height="256"
-                :src-set="
-                  item.image
-                    ? require(`@/assets/img/species/${item.image}?resize&sizes[]=256&sizes[]=512&sizes[]=768&webp&placeholder`)
-                        .srcSet
-                    : null
-                "
-              />
-              <v-card-title>
-                {{ item.species.split('(')[0].trim() }}
-              </v-card-title>
-              <v-card-subtitle class="pb-0 font-italic">{{
-                item.species.split('(')[1].replace(/\)+$/, '').trim()
-              }}</v-card-subtitle>
-              <v-card-subtitle class="flex-grow-1">
-                {{ truncate(item.description) }}
-              </v-card-subtitle>
-
-              <div>
+            <v-card class="flex d-flex flex-column justify-between" ripple>
+              <v-card
+                :to="item.species"
+                append
+                tile
+                flat
+                class="flex-grow-1"
+                :ripple="false"
+              >
+                <v-img
+                  :lazy-src="
+                    item.image
+                      ? require(`@/assets/img/species/${item.image}?resize&sizes[]=256&placeholder&lqip`)
+                          .src
+                      : null
+                  "
+                  :src="
+                    item.image
+                      ? require(`@/assets/img/species/${item.image}?resize&sizes[]=256&placeholder`)
+                          .src
+                      : null
+                  "
+                  height="256"
+                  max-height="256"
+                  :src-set="
+                    item.image
+                      ? require(`@/assets/img/species/${item.image}?resize&sizes[]=256&sizes[]=512&sizes[]=768&webp&placeholder`)
+                          .srcSet
+                      : null
+                  "
+                />
+                <v-card-title>
+                  {{ item.species.split('(')[0].trim() }}
+                </v-card-title>
+                <v-card-subtitle class="pb-0 font-italic">{{
+                  item.species.split('(')[1].replace(/\)+$/, '').trim()
+                }}</v-card-subtitle>
+                <v-card-subtitle class="flex-grow-1">
+                  {{ truncate(item.description) }}
+                </v-card-subtitle>
                 <v-card-subtitle class="pb-0">Category</v-card-subtitle>
                 <v-card-text class="text--primary">
                   {{ item.type }}
                 </v-card-text>
+              </v-card>
+
+              <div class="flex-shrink-1">
                 <template v-if="item.attracts">
                   <v-card-subtitle class="pb-0">
                     Attracts
@@ -92,6 +101,11 @@
                     <v-chip
                       v-for="attract in item.attracts.split(',').sort()"
                       :key="attract"
+                      :color="
+                        attracts === attract.toLowerCase().trim()
+                          ? 'primary'
+                          : null
+                      "
                       @click="attracts = attract.toLowerCase().trim()"
                     >
                       {{ startCase(attract) }}
