@@ -152,6 +152,9 @@ export default {
     theme: {
       dark: false,
       themes: {
+        light: {
+          anchor: colors.blue.darken4,
+        },
         dark: {
           primary: colors.blue.darken2,
           accent: colors.grey.darken3,
