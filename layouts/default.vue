@@ -97,7 +97,7 @@
             <v-spacer />
             <v-col v-if="$config.DATE_GENERATED" cols="auto">
               <v-card flat tile color="transparent">
-                <v-card-text
+                <v-card-text v-intersect="onIntersect"
                   >Last modified
                   <v-tooltip top>
                     <span>{{ lastModified.toString() }}</span>
@@ -146,15 +146,14 @@ export default {
         },
       ],
       title: 'Free Native Plants',
+      lastModified: DateTime.fromISO(this.$config.DATE_GENERATED),
     }
-  },
-  computed: {
-    lastModified() {
-      return DateTime.fromISO(this.$config.DATE_GENERATED)
-    },
   },
   methods: {
     shortHash: (value) => (value ? value.substring(0, 7) : null),
+    onIntersect() {
+      this.lastModified = DateTime.fromISO(this.$config.DATE_GENERATED)
+    },
   },
 }
 </script>
