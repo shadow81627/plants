@@ -39,7 +39,7 @@
   },
   "devDependencies": {
     "@aceforth/nuxt-optimized-images": "1.1.0",
-    "@mdi/js": "5.4.55",
+    "@mdi/js": "5.5.55",
     "@nuxt/types": "2.14.1",
     "@nuxt/typescript-build": "2.0.2",
     "@nuxtjs/eslint-config": "3.1.0",
