@@ -50,7 +50,6 @@
               <v-card
                 :to="item.species"
                 append
-                tile
                 flat
                 class="flex d-flex flex-column justify-between flex-grow-1"
                 :ripple="false"
