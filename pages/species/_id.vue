@@ -59,83 +59,96 @@
             {{ item.description }}
           </v-card-text>
 
-          <div>
-            <v-card-subtitle class="pb-0">Category</v-card-subtitle>
-            <v-card-text class="text--primary">
-              {{ item.type }}
-            </v-card-text>
+          <v-container v-if="waterwise">
+            <v-row>
+              <v-col>
+                <v-card-subtitle class="pb-0">Category</v-card-subtitle>
+                <v-card-text class="text--primary">
+                  {{ waterwise['Plant Type'] }}
+                </v-card-text>
 
-            <v-card-subtitle class="pb-0">Water Needs</v-card-subtitle>
-            <v-card-text class="text--primary">
-              {{ waterwise['Water Needs'] }}
-            </v-card-text>
-            <v-card-subtitle class="pb-0">Light Needs</v-card-subtitle>
-            <v-card-text class="text--primary">
-              {{ waterwise['Light Needs'] }}
-            </v-card-text>
+                <v-card-subtitle class="pb-0">Water Needs</v-card-subtitle>
+                <v-card-text class="text--primary">
+                  {{ waterwise['Water Needs'] }}
+                </v-card-text>
 
-            <template v-if="waterwise['Climate Zones']">
-              <v-card-subtitle class="pb-0">
-                Climate Zones
-              </v-card-subtitle>
-              <v-card-text>
-                <v-chip
-                  v-for="i in waterwise['Climate Zones'].split(',').sort()"
-                  :key="i"
-                  readonly
-                >
-                  {{ startCase(i) }}
-                </v-chip>
-              </v-card-text>
-            </template>
+                <v-card-subtitle class="pb-0">Light Needs</v-card-subtitle>
+                <v-card-text class="text--primary">
+                  {{ waterwise['Light Needs'] }}
+                </v-card-text>
 
-            <template v-if="waterwise['Soil Type']">
-              <v-card-subtitle class="pb-0">
-                Soil Type
-              </v-card-subtitle>
-              <v-card-text>
-                <v-chip
-                  v-for="i in waterwise['Soil Type'].split(',').sort()"
-                  :key="i"
-                  readonly
-                >
-                  {{ startCase(i) }}
-                </v-chip>
-              </v-card-text>
-            </template>
+                <v-card-subtitle class="pb-0">Maintenance</v-card-subtitle>
+                <v-card-text class="text--primary">
+                  {{ waterwise['Maintenance'] }}
+                </v-card-text>
+              </v-col>
+              <v-col>
+                <template v-if="waterwise['Climate Zones']">
+                  <v-card-subtitle class="pb-0">
+                    Climate Zones
+                  </v-card-subtitle>
+                  <v-card-text>
+                    <v-chip
+                      v-for="i in waterwise['Climate Zones'].split(',').sort()"
+                      :key="i"
+                      readonly
+                    >
+                      {{ startCase(i) }}
+                    </v-chip>
+                  </v-card-text>
+                </template>
 
-            <template v-if="waterwise['Soil Additional']">
-              <v-card-subtitle class="pb-0">Soil Additional</v-card-subtitle>
-              <v-card-text class="text--primary">
-                {{ waterwise['Soil Additional'] }}
-              </v-card-text>
-            </template>
+                <template v-if="waterwise['Soil Type']">
+                  <v-card-subtitle class="pb-0">
+                    Soil Type
+                  </v-card-subtitle>
+                  <v-card-text>
+                    <v-chip
+                      v-for="i in waterwise['Soil Type'].split(',').sort()"
+                      :key="i"
+                      readonly
+                    >
+                      {{ startCase(i) }}
+                    </v-chip>
+                  </v-card-text>
+                </template>
 
-            <template v-if="waterwise['Abcission']">
-              <v-card-subtitle class="pb-0"
-                >Abcission (when it makes a mess eg. drops
-                leaves)</v-card-subtitle
-              >
-              <v-card-text class="text--primary">
-                {{ waterwise['Abcission'] }}
-              </v-card-text>
-            </template>
+                <template v-if="waterwise['Soil Additional']">
+                  <v-card-subtitle class="pb-0"
+                    >Soil Additional</v-card-subtitle
+                  >
+                  <v-card-text class="text--primary">
+                    {{ waterwise['Soil Additional'] }}
+                  </v-card-text>
+                </template>
 
-            <template v-if="item.attracts">
-              <v-card-subtitle class="pb-0">
-                Attracts
-              </v-card-subtitle>
-              <v-card-text>
-                <v-chip
-                  v-for="attract in item.attracts.split(',').sort()"
-                  :key="attract"
-                  readonly
-                >
-                  {{ startCase(attract) }}
-                </v-chip>
-              </v-card-text>
-            </template>
-          </div>
+                <template v-if="waterwise['Abcission']">
+                  <v-card-subtitle class="pb-0"
+                    >Abcission (when it makes a mess eg. drops
+                    leaves)</v-card-subtitle
+                  >
+                  <v-card-text class="text--primary">
+                    {{ waterwise['Abcission'] }}
+                  </v-card-text>
+                </template>
+
+                <template v-if="item.attracts">
+                  <v-card-subtitle class="pb-0">
+                    Attracts
+                  </v-card-subtitle>
+                  <v-card-text>
+                    <v-chip
+                      v-for="attract in item.attracts.split(',').sort()"
+                      :key="attract"
+                      readonly
+                    >
+                      {{ startCase(attract) }}
+                    </v-chip>
+                  </v-card-text>
+                </template>
+              </v-col>
+            </v-row>
+          </v-container>
 
           <v-card-subtitle class="pb-0">Image License</v-card-subtitle>
           <v-card-text class="text--primary">
