@@ -126,7 +126,7 @@
 
 <script>
 import { DateTime } from 'luxon'
-import { mdiSprout, mdiInformation, mdiStore } from '@mdi/js'
+import { mdiSprout, mdiInformation, mdiStore, mdiDatabase } from '@mdi/js'
 // import UserMenu from '@/components/UserMenu.vue'
 export default {
   components: {
@@ -151,6 +151,11 @@ export default {
           icon: mdiStore,
           title: 'Nurseries',
           to: '/nurseries',
+        },
+        {
+          icon: mdiDatabase,
+          title: 'Sources',
+          to: '/sources',
         },
       ],
       title: 'Free Native Plants',
