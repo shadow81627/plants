@@ -13,33 +13,41 @@
         v-for="(item, index) in items"
         :key="index"
         cols="12"
-        sm="6"
-        md="4"
-        xlg="3"
+        xsm="6"
+        md="6"
+        lg="4"
         class="d-flex flex-column"
       >
-        <v-card
-          class="flex d-flex flex-column justify-between"
-          append
-          :href="item.link"
-          target="_blank"
-          rel="noopener"
-        >
-          <div class="flex-grow-1">
-            <v-card-title class="text-break text-wrap">
-              {{ item.name }}
-            </v-card-title>
-            <v-card-subtitle>
-              {{ item.author }}
-            </v-card-subtitle>
-            <v-card-text>
-              {{ item.description }}
-            </v-card-text>
-          </div>
+        <v-card class="flex d-flex flex-column justify-between">
+          <v-card
+            class="flex d-flex flex-column justify-between"
+            append
+            :href="item.link"
+            target="_blank"
+            rel="noopener"
+            flat
+          >
+            <div class="flex-grow-1">
+              <v-card-title class="text-break text-wrap">
+                {{ item.name }}
+              </v-card-title>
+              <v-card-subtitle>
+                {{ item.author }}
+              </v-card-subtitle>
+              <v-card-text>
+                {{ item.description }}
+              </v-card-text>
+            </div>
+          </v-card>
           <v-card-actions>
-            <v-btn :href="item.license.href" text>{{
-              item.license.text
-            }}</v-btn>
+            <v-btn
+              :href="item.license.link"
+              target="_blank"
+              rel="noopener"
+              text
+              block
+              >{{ item.license.text }}</v-btn
+            >
           </v-card-actions>
         </v-card>
       </v-col>
@@ -72,6 +80,17 @@ export default {
         license: {
           text: 'Creative Commons Attribution 3.0',
           link: 'https://creativecommons.org/licenses/by/3.0/',
+        },
+      },
+      {
+        name: 'Images',
+        author: 'Creative Commons Search',
+        description:
+          'A new Creative Commons search tool for creators seeking to discover and reuse free resources with greater ease.',
+        link: 'https://ccsearch.creativecommons.org/',
+        license: {
+          text: 'Creative Commons Attribution 2.0',
+          link: 'https://creativecommons.org/licenses/by/2.0/',
         },
       },
     ],
