@@ -12,7 +12,7 @@
         cols="12"
         sm="6"
         md="4"
-        lg="3"
+        xlg="3"
         class="d-flex flex-column"
       >
         <v-card
