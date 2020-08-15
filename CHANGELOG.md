@@ -1,5 +1,11 @@
 # Releases
 
+## [1.5.1](https://github.com/shadow81627/brisbane-city-council-free-native-plants/compare/v1.5.0...v1.5.1) (2020-08-15)
+
+### Bug Fixes
+
+- **species:** only show waterwise data if found ([45afda8](https://github.com/shadow81627/brisbane-city-council-free-native-plants/commit/45afda82d4aba37ebfe9349d40f5378141e699d0))
+
 ## [1.5.0](https://github.com/shadow81627/brisbane-city-council-free-native-plants/compare/v1.4.0...v1.5.0) (2020-08-15)
 
 ### Features
