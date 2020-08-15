@@ -1,5 +1,11 @@
 # Releases
 
+## [1.5.0](https://github.com/shadow81627/brisbane-city-council-free-native-plants/compare/v1.4.0...v1.5.0) (2020-08-15)
+
+### Features
+
+- add data sources page ([06b2b6e](https://github.com/shadow81627/brisbane-city-council-free-native-plants/commit/06b2b6e14e2701585cc0f50a57491556d1ab6d5f))
+
 ## [1.4.0](https://github.com/shadow81627/brisbane-city-council-free-native-plants/compare/v1.3.3...v1.4.0) (2020-08-15)
 
 ### Bug Fixes
