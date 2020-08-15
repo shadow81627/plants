@@ -114,7 +114,7 @@
                       {{ startCase(attract) }}
                     </v-chip>
                   </v-card-text>
-                  <v-card-actions class="pa-0 flex-grow-1">
+                  <!-- <v-card-actions class="pa-0 flex-grow-1">
                     <v-btn
                       color="#e0e0e0"
                       :to="item.species"
@@ -127,7 +127,7 @@
                       Read more
                       <v-icon small absolute>{{ mdiArrowRight }}</v-icon>
                     </v-btn>
-                  </v-card-actions>
+                  </v-card-actions> -->
                 </template>
               </div>
             </v-card>
