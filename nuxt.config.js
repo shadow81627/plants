@@ -51,7 +51,12 @@ export default {
         },
         hid: 'og:title',
       },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      {
+        once: true,
+        hid: 'viewport',
+        name: 'viewport',
+        content: 'width=device-width, initial-scale=1',
+      },
       {
         hid: 'description',
         name: 'description',
