@@ -66,6 +66,14 @@
           <v-container v-if="waterwise">
             <v-row>
               <v-col>
+                <v-card-subtitle class="pb-0">Width</v-card-subtitle>
+                <v-card-text class="text--primary">
+                  {{ waterwise['Spread Ranges'] }}
+                </v-card-text>
+                <v-card-subtitle class="pb-0">Height</v-card-subtitle>
+                <v-card-text class="text--primary">
+                  {{ waterwise['Height Ranges'] }}
+                </v-card-text>
                 <v-card-subtitle class="pb-0">Category</v-card-subtitle>
                 <v-card-text class="text--primary">
                   {{ waterwise['Plant Type'] }}
@@ -85,8 +93,120 @@
                 <v-card-text class="text--primary">
                   {{ waterwise['Maintenance'] }}
                 </v-card-text>
+
+                <v-card-subtitle class="pb-0"
+                  >Bore water Tolerance</v-card-subtitle
+                >
+                <v-card-text class="text--primary">
+                  {{ waterwise['Bore water Tolerance'] }}
+                </v-card-text>
+
+                <v-card-subtitle class="pb-0">Frost Tolerance</v-card-subtitle>
+                <v-card-text class="text--primary">
+                  {{ waterwise['Frost Tolerance'] }}
+                </v-card-text>
+
+                <v-card-subtitle class="pb-0"
+                  >Greywater Tolerance</v-card-subtitle
+                >
+                <v-card-text class="text--primary">
+                  {{ waterwise['Greywater Tolerance'] }}
+                </v-card-text>
+
+                <v-card-subtitle class="pb-0">Edible</v-card-subtitle>
+                <v-card-text class="text--primary">
+                  {{ waterwise['Edible'] }}
+                </v-card-text>
               </v-col>
               <v-col>
+                <v-card-subtitle class="pb-0">Perfume</v-card-subtitle>
+                <v-card-text class="text--primary">
+                  {{ waterwise['Perfume'] }}
+                </v-card-text>
+
+                <v-card-subtitle class="pb-0">Aromatic</v-card-subtitle>
+                <v-card-text class="text--primary">
+                  {{ waterwise['Aromatic'] }}
+                </v-card-text>
+
+                <v-card-subtitle class="pb-0">Colours</v-card-subtitle>
+                <v-card-text class="text--primary">
+                  <span
+                    v-for="color in require(`@/assets/img/species/${item.image}?lqip-colors`)"
+                    :key="color"
+                  >
+                    <span style="display: inline-flex; align-self: bottom;">
+                      <svg
+                        style="
+                          height: 1em;
+                          width: 1em;
+                          top: 0.125em;
+                          position: relative;
+                        "
+                      >
+                        <rect
+                          :fill="color.toLowerCase()"
+                          style="height: 1em; width: 1em;"
+                        ></rect>
+                      </svg>
+                    </span>
+                    <!-- <span>{{ color }}</span> -->
+                    <!-- <span> </span> -->
+                  </span>
+                </v-card-text>
+
+                <v-card-subtitle class="pb-0">Flower Colour</v-card-subtitle>
+                <v-card-text class="text--primary">
+                  <span
+                    v-for="color in waterwise['Flower colour'].split(' and ')"
+                    :key="color"
+                  >
+                    <!-- <span style="display: inline-flex; align-self: bottom;">
+                      <svg
+                        style="
+                          height: 1em;
+                          width: 1em;
+                          top: 0.125em;
+                          position: relative;
+                        "
+                      >
+                        <rect
+                          :fill="color.toLowerCase()"
+                          style="height: 1em; width: 1em;"
+                        ></rect>
+                      </svg>
+                    </span> -->
+                    <span>{{ startCase(color) }}</span>
+                    <span> </span>
+                  </span>
+                </v-card-text>
+
+                <v-card-subtitle class="pb-0">Foliage Colour</v-card-subtitle>
+                <v-card-text class="text--primary">
+                  <span
+                    v-for="color in waterwise['Foliage Colour'].split(' and ')"
+                    :key="color"
+                  >
+                    <!-- <span style="display: inline-flex; align-self: bottom;">
+                      <svg
+                        style="
+                          height: 1em;
+                          width: 1em;
+                          top: 0.125em;
+                          position: relative;
+                        "
+                      >
+                        <rect
+                          :fill="color.toLowerCase()"
+                          style="height: 1em; width: 1em;"
+                        ></rect>
+                      </svg>
+                    </span> -->
+                    <span>{{ startCase(color) }}</span>
+                    <span> </span>
+                  </span>
+                </v-card-text>
+
                 <template v-if="waterwise['Climate Zones']">
                   <v-card-subtitle class="pb-0">
                     Climate Zones
@@ -190,11 +310,15 @@ export default {
         const commonName = startCase(item.species.split('(')[0].trim())
         const botanicalName = item.species
           .split('(')[1]
+          .replace(/seasonal$/, '')
+          .replace(/-/, '')
+          .trim()
           .replace(/\)+$/, '')
           .trim()
         return (
           i['Common Name'] === commonName ||
           i['Botanical Name'] === botanicalName ||
+          i['Previous Name'] === botanicalName ||
           i['Botanical Name'].startsWith(
             botanicalName.replace(/sp\.$/, '').trim()
           )
@@ -210,12 +334,43 @@ export default {
     waterwise: {},
     mdiArrowRight,
   }),
+  computed: {
+    commonName() {
+      return startCase(this.item.species.split('(')[0].trim())
+    },
+    botanicalName() {
+      return this.item.species.split('(')[1].replace(/\)+$/, '').trim()
+    },
+  },
   methods: {
     startCase,
   },
   head() {
     return {
       title: this.item.species,
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: this.item.description,
+        },
+        {
+          hid: 'og:image',
+          property: 'og:image',
+          content: !require(`@/assets/img/species/${this.item.image}?resize&sizes[]=1785&placeholder`)
+            .src,
+        },
+        {
+          hid: 'og:image:width',
+          property: 'og:image:width',
+          content: '640',
+        },
+        {
+          hid: 'og:image:height',
+          property: 'og:image:height',
+          content: '360',
+        },
+      ],
     }
   },
 }
