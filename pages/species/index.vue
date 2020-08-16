@@ -79,7 +79,7 @@
                   }"
                 />
                 <v-card-title>
-                  {{ item.species.split('(')[0].trim() }}
+                  {{ startCase(item.species.split('(')[0].trim()) }}
                 </v-card-title>
                 <v-card-subtitle class="pb-0 font-italic">{{
                   item.species.split('(')[1].replace(/\)+$/, '').trim()

@@ -35,7 +35,11 @@
                 <v-col class="pa-0">
                   <v-card style="background: rgba(0, 0, 0, 0.3);">
                     <v-card-title>
-                      <h1 class="text-break text-wrap">{{ item.species }}</h1>
+                      <h1 class="text-break text-wrap">
+                        {{ startCase(item.species.split('(')[0].trim()) }} ({{
+                          item.species.split('(')[1].replace(/\)+$/, '').trim()
+                        }})
+                      </h1>
                     </v-card-title>
                     <!-- <v-card-text class="caption text-no-wrap">
                       {{ item.credit }}
@@ -48,7 +52,7 @@
 
           <div v-if="$vuetify.breakpoint.mdAndDown">
             <v-card-title>
-              {{ item.species.split('(')[0].trim() }}
+              {{ startCase(item.species.split('(')[0].trim()) }}
             </v-card-title>
             <v-card-subtitle class="pb-0 font-italic">{{
               item.species.split('(')[1].replace(/\)+$/, '').trim()
@@ -182,12 +186,20 @@ export default {
       const { body: waterwiseBody = [] } = await context
         .$content('waterwise-plants')
         .fetch()
-      const waterwise = waterwiseBody.find(
-        (i) =>
-          i['Common Name'] === startCase(item.species.split('(')[0].trim()) ||
-          i['Botanical Name'] ===
-            item.species.split('(')[1].replace(/\)+$/, '').trim()
-      )
+      const waterwise = waterwiseBody.find((i) => {
+        const commonName = startCase(item.species.split('(')[0].trim())
+        const botanicalName = item.species
+          .split('(')[1]
+          .replace(/\)+$/, '')
+          .trim()
+        return (
+          i['Common Name'] === commonName ||
+          i['Botanical Name'] === botanicalName ||
+          i['Botanical Name'].startsWith(
+            botanicalName.replace(/sp\.$/, '').trim()
+          )
+        )
+      })
       return { item, waterwise }
     } catch {
       context.error({ statusCode: 404 })
