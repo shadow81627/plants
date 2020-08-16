@@ -48,7 +48,7 @@
           >
             <v-card class="flex d-flex flex-column justify-between" ripple>
               <v-card
-                :to="item.species"
+                :to="encodeURIComponent(item.species)"
                 append
                 flat
                 class="flex d-flex flex-column justify-between flex-grow-1"
@@ -82,7 +82,13 @@
                   {{ startCase(item.species.split('(')[0].trim()) }}
                 </v-card-title>
                 <v-card-subtitle class="pb-0 font-italic">{{
-                  item.species.split('(')[1].replace(/\)+$/, '').trim()
+                  item.species
+                    .split('(')[1]
+                    .replace(/seasonal$/, '')
+                    .replace(/-/, '')
+                    .trim()
+                    .replace(/\)+$/, '')
+                    .trim()
                 }}</v-card-subtitle>
                 <v-card-subtitle class="flex-grow-1">
                   {{ truncate(item.description) }}
