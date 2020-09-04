@@ -1,5 +1,12 @@
 # Releases
 
+## [1.5.4](https://github.com/shadow81627/brisbane-city-council-free-native-plants/compare/v1.5.3...v1.5.4) (2020-09-04)
+
+### Bug Fixes
+
+- **deps:** update dependency @nuxtjs/axios to v5.12.2 ([#25](https://github.com/shadow81627/brisbane-city-council-free-native-plants/issues/25)) ([977cda1](https://github.com/shadow81627/brisbane-city-council-free-native-plants/commit/977cda1de29cf03aadc8001136de7a2333683fbb))
+- **deps:** update dependency @nuxtjs/pwa to v3.0.2 ([#15](https://github.com/shadow81627/brisbane-city-council-free-native-plants/issues/15)) ([72b82e5](https://github.com/shadow81627/brisbane-city-council-free-native-plants/commit/72b82e5ea42d28ef2ee78b6a125e8533f24bdda8))
+
 ## [1.5.3](https://github.com/shadow81627/brisbane-city-council-free-native-plants/compare/v1.5.2...v1.5.3) (2020-08-16)
 
 ### Bug Fixes
