@@ -4,27 +4,14 @@
       <v-col class="d-flex flex-column">
         <v-card class="flex d-flex flex-column justify-between">
           <v-img
-            :lazy-src="
-              item.image
-                ? require(`@/assets/img/species/${item.image}?lqip`)
-                : null
-            "
-            :src="
-              item.image
-                ? require(`@/assets/img/species/${item.image}?resize&sizes[]=1785&placeholder`)
-                    .src
-                : null
-            "
-            :aspect-ratio="640 / 360"
-            :src-set="
-              item.image
-                ? require(`@/assets/img/species/${item.image}?resize&max=1785&min=320&steps=6&webp&placeholder`)
-                    .srcSet
-                : null
-            "
+            :lazy-src="lazySrc(`./${item.image}`)"
+            :src="src(`./${item.image}`).src"
+            :srcset="srcSet(`./${item.image}`).srcSet"
+            :aspect-ratio="16 / 9"
             :style="{
-              backgroundColor: require(`@/assets/img/species/${item.image}?lqip-colors`)[0],
+              backgroundColor: backgroundColor(`./${item.image}`)[0],
             }"
+            sizes="(max-width: 1785px) 100vw, 1785px"
             dark
           >
             <v-container
@@ -340,6 +327,26 @@ export default {
   },
   methods: {
     startCase,
+    backgroundColor: require.context(
+      '~/assets/img/species?lqip-colors',
+      false,
+      /\.(png|jpe?g|svg).*$/
+    ),
+    lazySrc: require.context(
+      `~/assets/img/species?lqip`,
+      false,
+      /\.(png|jpe?g|svg).*$/
+    ),
+    src: require.context(
+      `~/assets/img/species?resize&size=1785&placeholder&format=webp`,
+      false,
+      /\.(png|jpe?g|svg).*$/
+    ),
+    srcSet: require.context(
+      `~/assets/img/species?resize?resize&sizes[]=320&sizes[]=600&sizes[]=900&sizes[]=1785&sizes[]=4686&format=webp`,
+      false,
+      /\.(png|jpe?g|svg).*$/
+    ),
   },
   head() {
     return {

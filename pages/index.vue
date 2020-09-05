@@ -33,20 +33,15 @@
             v-for="(item, i) in items"
             :key="i"
             eager
-            height="500"
-            :lazy-src="require(`@/assets/img/species/${item.src}?lqip`)"
-            :src="
-              require(`@/assets/img/species/${item.src}?resize&size=1785&placeholder`)
-                .src
-            "
-            :src-set="
-              require(`@/assets/img/species/${item.src}?resize&max=1785&min=320&steps=6`)
-                .srcSet
-            "
-            :to="`/species/${item.name}`"
+            :lazy-src="lazySrc(`./${item.image}`)"
+            :src="src(`./${item.image}`).src"
+            :src-set="srcSet(`./${item.image}`).srcSet"
             :style="{
-              backgroundColor: require(`@/assets/img/species/${item.src}?lqip-colors`)[0],
+              backgroundColor: backgroundColor(`./${item.image}`)[0],
             }"
+            sizes="(max-width: 1785px) 100vw, 1785px"
+            height="500"
+            :to="`/species/${item.name}`"
           >
             <v-container class="fill-height align-items-end justify-start pb-0">
               <v-row class="align-self-end pb-0" align="end" justify="start">
@@ -80,7 +75,7 @@ export default {
         .filter((item) => item.image)
         .map((item) => ({
           name: item.species,
-          src: item.image,
+          image: item.image,
           credit: item.credit,
         }))
     )
@@ -89,5 +84,27 @@ export default {
   data: () => ({
     items: [],
   }),
+  methods: {
+    backgroundColor: require.context(
+      '~/assets/img/species?lqip-colors',
+      false,
+      /\.(png|jpe?g|svg).*$/
+    ),
+    lazySrc: require.context(
+      `~/assets/img/species?lqip`,
+      false,
+      /\.(png|jpe?g|svg).*$/
+    ),
+    src: require.context(
+      `~/assets/img/species?resize&size=1785&placeholder&format=webp`,
+      false,
+      /\.(png|jpe?g|svg).*$/
+    ),
+    srcSet: require.context(
+      `~/assets/img/species?resize?resize&sizes[]=320&sizes[]=600&sizes[]=900&sizes[]=1785&sizes[]=4686&format=webp`,
+      false,
+      /\.(png|jpe?g|svg).*$/
+    ),
+  },
 }
 </script>
