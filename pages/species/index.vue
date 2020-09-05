@@ -55,27 +55,12 @@
                 :ripple="false"
               >
                 <v-img
-                  :lazy-src="
-                    item.image
-                      ? require(`@/assets/img/species/${item.image}?lqip`)
-                      : null
-                  "
-                  :src="
-                    item.image
-                      ? require(`@/assets/img/species/${item.image}?resize&sizes[]=256&placeholder`)
-                          .src
-                      : null
-                  "
-                  height="256"
-                  max-height="256"
-                  :src-set="
-                    item.image
-                      ? require(`@/assets/img/species/${item.image}?resize&sizes[]=256&sizes[]=512&sizes[]=768&webp&placeholder`)
-                          .srcSet
-                      : null
-                  "
+                  :lazy-src="lazySrc(`./${item.image}`)"
+                  :src="src(`./${item.image}`).src"
+                  :srcset="srcSet(`./${item.image}`).srcSet"
+                  :aspect-ratio="16 / 9"
                   :style="{
-                    backgroundColor: require(`@/assets/img/species/${item.image}?lqip-colors`)[0],
+                    backgroundColor: backgroundColor(`./${item.image}`)[0],
                   }"
                 />
                 <v-card-title>
@@ -228,6 +213,31 @@ export default {
     scrollToTop() {
       window.scrollTo(0, 0)
     },
+    assetsPath: require.context(
+      '~/assets/img/species',
+      false,
+      /\.(png|jpe?g|svg).*$/
+    ),
+    backgroundColor: require.context(
+      '~/assets/img/species?lqip-colors',
+      false,
+      /\.(png|jpe?g|svg).*$/
+    ),
+    lazySrc: require.context(
+      `~/assets/img/species?lqip`,
+      false,
+      /\.(png|jpe?g|svg).*$/
+    ),
+    src: require.context(
+      `~/assets/img/species?resize&size=320&placeholder&format=webp`,
+      false,
+      /\.(png|jpe?g|svg).*$/
+    ),
+    srcSet: require.context(
+      `~/assets/img/species?resize&sizes[]=320&sizes[]=640&sizes[]=960&format=webp`,
+      false,
+      /\.(png|jpe?g|svg).*$/
+    ),
   },
   head() {
     return {
