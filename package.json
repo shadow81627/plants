@@ -63,7 +63,7 @@
     "imagemin-mozjpeg": "9.0.0",
     "imagemin-pngquant": "9.0.0",
     "imagemin-svgo": "8.0.0",
-    "jest": "26.4.0",
+    "jest": "26.4.2",
     "lint-staged": "10.2.11",
     "lqip-loader": "2.2.0",
     "prettier": "2.0.5",
