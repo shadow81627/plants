@@ -3,7 +3,7 @@
   "trailingSlash": false,
   "headers": [
     {
-      "source": "/_nuxt/.+",
+      "source": "/_nuxt/(.*)",
       "headers": [
         {
           "key": "Cache-Control",
