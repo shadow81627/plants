@@ -51,7 +51,7 @@
             <v-container class="fill-height align-items-end justify-start pb-0">
               <v-row class="align-self-end pb-0" align="end" justify="start">
                 <v-col class="pa-0">
-                  <v-card style="background: rgba(0, 0, 0, 0.3);">
+                  <v-card style="background: rgba(0, 0, 0, 0.3)">
                     <v-card-text class="pb-0">
                       {{ item.name }}
                     </v-card-text>
