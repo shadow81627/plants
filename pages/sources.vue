@@ -3,9 +3,7 @@
     <v-row>
       <v-col>
         <h1>Sources</h1>
-        <p>
-          See below sources for data sets used to produce this site.
-        </p>
+        <p>See below sources for data sets used to produce this site.</p>
       </v-col>
     </v-row>
     <v-row>

@@ -103,9 +103,7 @@
 
               <div class="flex-shrink-1">
                 <template v-if="item.attracts">
-                  <v-card-subtitle class="pb-0">
-                    Attracts
-                  </v-card-subtitle>
+                  <v-card-subtitle class="pb-0"> Attracts </v-card-subtitle>
                   <v-card-text>
                     <v-chip
                       v-for="attract in item.attracts.split(',').sort()"

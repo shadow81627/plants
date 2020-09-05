@@ -37,7 +37,7 @@
       <!-- <user-menu></user-menu> -->
     </v-app-bar>
     <v-main>
-      <nuxt style="min-height: 100vh;" />
+      <nuxt style="min-height: 100vh" />
       <v-footer>
         <v-container>
           <v-row no-gutters>
@@ -45,7 +45,7 @@
               <v-card flat color="transparent">
                 <v-card-text>
                   <span>{{ $config.VERSION }}</span>
-                  <span v-if="($config.COMMIT || $config.TRAVIS_COMMIT)">{{
+                  <span v-if="$config.COMMIT || $config.TRAVIS_COMMIT">{{
                     shortHash($config.COMMIT || $config.TRAVIS_COMMIT)
                   }}</span>
                   <span

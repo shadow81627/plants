@@ -33,7 +33,7 @@
             >
               <v-row class="align-self-end pb-0" align="end" justify="start">
                 <v-col class="pa-0">
-                  <v-card style="background: rgba(0, 0, 0, 0.3);">
+                  <v-card style="background: rgba(0, 0, 0, 0.3)">
                     <v-card-title>
                       <h1 class="text-break text-wrap">
                         {{ startCase(item.species.split('(')[0].trim()) }} ({{
@@ -135,7 +135,7 @@
                     v-for="color in require(`@/assets/img/species/${item.image}?lqip-colors`)"
                     :key="color"
                   >
-                    <span style="display: inline-flex; align-self: bottom;">
+                    <span style="display: inline-flex; align-self: bottom">
                       <svg
                         style="
                           height: 1em;
@@ -146,7 +146,7 @@
                       >
                         <rect
                           :fill="color.toLowerCase()"
-                          style="height: 1em; width: 1em;"
+                          style="height: 1em; width: 1em"
                         ></rect>
                       </svg>
                     </span>
@@ -223,9 +223,7 @@
                 </template>
 
                 <template v-if="waterwise['Soil Type']">
-                  <v-card-subtitle class="pb-0">
-                    Soil Type
-                  </v-card-subtitle>
+                  <v-card-subtitle class="pb-0"> Soil Type </v-card-subtitle>
                   <v-card-text>
                     <v-chip
                       v-for="i in waterwise['Soil Type'].split(',').sort()"
@@ -257,9 +255,7 @@
                 </template>
 
                 <template v-if="item.attracts">
-                  <v-card-subtitle class="pb-0">
-                    Attracts
-                  </v-card-subtitle>
+                  <v-card-subtitle class="pb-0"> Attracts </v-card-subtitle>
                   <v-card-text>
                     <v-chip
                       v-for="attract in item.attracts.split(',').sort()"
