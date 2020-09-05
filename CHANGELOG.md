@@ -1,5 +1,12 @@
 # Releases
 
+## [1.5.5](https://github.com/shadow81627/brisbane-city-council-free-native-plants/compare/v1.5.4...v1.5.5) (2020-09-05)
+
+### Bug Fixes
+
+- **deps:** update dependency @nuxt/content to v1.8.1 ([#18](https://github.com/shadow81627/brisbane-city-council-free-native-plants/issues/18)) ([6dda34d](https://github.com/shadow81627/brisbane-city-council-free-native-plants/commit/6dda34d9ceffdade619a0ad57becedf41dbb9bcc))
+- **deps:** update dependency luxon to v1.25.0 ([#21](https://github.com/shadow81627/brisbane-city-council-free-native-plants/issues/21)) ([5be6372](https://github.com/shadow81627/brisbane-city-council-free-native-plants/commit/5be6372f980d795bdd68c2deebcecc4923fe53f0))
+
 ## [1.5.4](https://github.com/shadow81627/brisbane-city-council-free-native-plants/compare/v1.5.3...v1.5.4) (2020-09-04)
 
 ### Bug Fixes
