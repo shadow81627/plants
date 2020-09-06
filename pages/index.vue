@@ -35,7 +35,7 @@
             eager
             :lazy-src="src(`./${item.image}`).placeholder"
             :src="src(`./${item.image}`).src"
-            :src-set="src(`./${item.image}`).srcSet"
+            :srcset="src(`./${item.image}`).srcSet"
             :style="{
               backgroundColor: backgroundColor(`./${item.image}`)[0],
             }"
