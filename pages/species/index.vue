@@ -55,9 +55,9 @@
                 :ripple="false"
               >
                 <v-img
-                  :lazy-src="lazySrc(`./${item.image}`)"
+                  :lazy-src="src(`./${item.image}`).placeholder"
                   :src="src(`./${item.image}`).src"
-                  :srcset="srcSet(`./${item.image}`).srcSet"
+                  :srcset="src(`./${item.image}`).srcSet"
                   :aspect-ratio="16 / 9"
                   :style="{
                     backgroundColor: backgroundColor(`./${item.image}`)[0],
@@ -213,28 +213,13 @@ export default {
     scrollToTop() {
       window.scrollTo(0, 0)
     },
-    assetsPath: require.context(
-      '~/assets/img/species',
-      false,
-      /\.(png|jpe?g|svg).*$/
-    ),
     backgroundColor: require.context(
       '~/assets/img/species?lqip-colors',
       false,
       /\.(png|jpe?g|svg).*$/
     ),
-    lazySrc: require.context(
-      `~/assets/img/species?lqip`,
-      false,
-      /\.(png|jpe?g|svg).*$/
-    ),
     src: require.context(
-      `~/assets/img/species?resize&size=320&placeholder&format=webp`,
-      false,
-      /\.(png|jpe?g|svg).*$/
-    ),
-    srcSet: require.context(
-      `~/assets/img/species?resize&sizes[]=320&sizes[]=640&sizes[]=960&format=webp`,
+      `~/assets/img/species?resize&sizes[]=320&sizes[]=640&sizes[]=960&placeholder&placeholderSize=10&format=webp`,
       false,
       /\.(png|jpe?g|svg).*$/
     ),

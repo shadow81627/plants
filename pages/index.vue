@@ -33,9 +33,9 @@
             v-for="(item, i) in items"
             :key="i"
             eager
-            :lazy-src="lazySrc(`./${item.image}`)"
+            :lazy-src="src(`./${item.image}`).placeholder"
             :src="src(`./${item.image}`).src"
-            :src-set="srcSet(`./${item.image}`).srcSet"
+            :src-set="src(`./${item.image}`).srcSet"
             :style="{
               backgroundColor: backgroundColor(`./${item.image}`)[0],
             }"
@@ -90,18 +90,8 @@ export default {
       false,
       /\.(png|jpe?g|svg).*$/
     ),
-    lazySrc: require.context(
-      `~/assets/img/species?lqip`,
-      false,
-      /\.(png|jpe?g|svg).*$/
-    ),
     src: require.context(
-      `~/assets/img/species?resize&size=1785&placeholder&format=webp`,
-      false,
-      /\.(png|jpe?g|svg).*$/
-    ),
-    srcSet: require.context(
-      `~/assets/img/species?resize?resize&sizes[]=320&sizes[]=600&sizes[]=900&sizes[]=1785&sizes[]=4686&format=webp`,
+      `~/assets/img/species?resize&sizes[]=320&sizes[]=600&sizes[]=900&sizes[]=1785&sizes[]=4686&format=webp`,
       false,
       /\.(png|jpe?g|svg).*$/
     ),
