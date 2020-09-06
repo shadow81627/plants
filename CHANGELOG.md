@@ -1,5 +1,11 @@
 # Releases
 
+## [1.6.2](https://github.com/shadow81627/brisbane-city-council-free-native-plants/compare/v1.6.1...v1.6.2) (2020-09-06)
+
+### Bug Fixes
+
+- **about:** carousel item src-set to srcset ([6a0a8ff](https://github.com/shadow81627/brisbane-city-council-free-native-plants/commit/6a0a8ff627f1a2918cef4ef69c751e6adcee860b))
+
 ## [1.6.1](https://github.com/shadow81627/brisbane-city-council-free-native-plants/compare/v1.6.0...v1.6.1) (2020-09-06)
 
 ### Performance Improvements
