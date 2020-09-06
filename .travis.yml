@@ -9,6 +9,7 @@ cache: npm
 script:
   - npm run lint
   # - npm run test
+  - npm run bundlesize
   - npm run generate
   - npx semantic-release
 

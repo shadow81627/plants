@@ -219,7 +219,7 @@ export default {
       /\.(png|jpe?g|svg).*$/
     ),
     src: require.context(
-      `~/assets/img/species?resize&sizes[]=320&sizes[]=640&sizes[]=960&placeholder&placeholderSize=10&format=webp`,
+      `~/assets/img/species?resize&sizes[]=320&sizes[]=640&sizes[]=960&placeholder&format=webp`,
       false,
       /\.(png|jpe?g|svg).*$/
     ),

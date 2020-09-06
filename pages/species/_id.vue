@@ -350,8 +350,7 @@ export default {
         {
           hid: 'og:image',
           property: 'og:image',
-          content: !require(`@/assets/img/species/${this.item.image}?resize&sizes[]=1785&placeholder`)
-            .src,
+          content: this.src(`./${this.item.image}`).src,
         },
         {
           hid: 'og:image:width',

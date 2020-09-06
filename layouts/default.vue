@@ -113,6 +113,7 @@
 </template>
 
 <script>
+import { shuffle, head } from 'lodash-es'
 import { mdiSprout, mdiInformation, mdiStore, mdiDatabase } from '@mdi/js'
 // import UserMenu from '@/components/UserMenu.vue'
 import LastModified from '@/components/LastModified'
@@ -158,6 +159,46 @@ export default {
   },
   methods: {
     shortHash: (value) => (value ? value.substring(0, 7) : null),
+    src: require.context(
+      `~/assets/img/species?resize&size=640&format=webp`,
+      false,
+      /\.(png|jpe?g|svg).*$/
+    ),
+    async ogImage() {
+      const content = await this.$content('species').fetch()
+      const { body } = content
+      const result = shuffle(
+        body
+          .filter((item) => item.image)
+          .map((item) => ({
+            name: item.species,
+            image: item.image,
+          }))
+      )
+      return head(result)
+    },
+  },
+  async head() {
+    const image = await this.ogImage().image
+    return {
+      meta: [
+        {
+          hid: 'og:image',
+          property: 'og:image',
+          content: this.src(`./${image}`).src,
+        },
+        {
+          hid: 'og:image:width',
+          property: 'og:image:width',
+          content: this.src(`./${image}`).width,
+        },
+        {
+          hid: 'og:image:height',
+          property: 'og:image:height',
+          content: this.src(`./${image}`).height,
+        },
+      ],
+    }
   },
 }
 </script>

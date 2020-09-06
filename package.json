@@ -7,6 +7,7 @@
     "dev": "nuxt-ts",
     "build": "nuxt-ts build",
     "build:analyze": "npm run build -- --analyze",
+    "bundlesize": "bundlesize",
     "start": "nuxt-ts start",
     "serve": "nuxt-ts serve",
     "serve:lhci": "npm run start",
