@@ -1,5 +1,12 @@
 # Releases
 
+## [1.6.1](https://github.com/shadow81627/brisbane-city-council-free-native-plants/compare/v1.6.0...v1.6.1) (2020-09-06)
+
+### Performance Improvements
+
+- **footer:** replace luxon with dayjs ([e778f8c](https://github.com/shadow81627/brisbane-city-council-free-native-plants/commit/e778f8c9171eca53b16be6349d342c7bc81a59e5)), closes [#34](https://github.com/shadow81627/brisbane-city-council-free-native-plants/issues/34)
+- **images:** use single source ([289ac30](https://github.com/shadow81627/brisbane-city-council-free-native-plants/commit/289ac30c6b340a7cf7f6964eedb23444a9ff61eb))
+
 ## [1.6.0](https://github.com/shadow81627/brisbane-city-council-free-native-plants/compare/v1.5.7...v1.6.0) (2020-09-05)
 
 ### Features
