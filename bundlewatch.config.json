@@ -1,0 +1,9 @@
+{
+  "files": [
+    {
+      "path": "dist/**/*.*.!(jpg|png)",
+      "maxSize": "250 kB",
+      "compression": "gzip"
+    }
+  ]
+}

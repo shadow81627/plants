@@ -1,9 +1,0 @@
-{
-  "files": [
-    {
-      "path": "dist/**/*.!(jpg|png|webp)",
-      "maxSize": "250 kB",
-      "compression": "brotli"
-    }
-  ]
-}

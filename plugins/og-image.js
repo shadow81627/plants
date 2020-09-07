@@ -9,7 +9,7 @@ export default async (context) => {
   const { image } = head(shuffle(body.filter((item) => item.image)))
 
   const src = require.context(
-    `~/assets/img/species?resize&size=640&format=webp`,
+    `~/assets/img/species?resize&size=640&format=jpg`,
     false,
     /\.(png|jpe?g|svg).*$/
   )
