@@ -93,6 +93,7 @@ export default {
    */
   plugins: [
     // { src: 'plugins/theme', mode: 'client' }
+    { src: 'plugins/og-image.js' },
   ],
   /*
    ** Auto import components
