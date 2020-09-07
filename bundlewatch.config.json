@@ -1,7 +1,7 @@
 {
   "files": [
     {
-      "path": "dist/**/*.*.!(jpg|png)",
+      "path": "dist/**/**.{js,css,html}",
       "maxSize": "250 kB",
       "compression": "gzip"
     }
