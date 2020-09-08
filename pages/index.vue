@@ -22,43 +22,47 @@
     </v-row>
     <v-row>
       <v-col>
-        <v-carousel
-          cycle
-          hide-delimiters
-          continuous
-          :interval="10000"
-          show-arrows-on-hover
-        >
-          <v-carousel-item
-            v-for="(item, i) in items"
-            :key="i"
-            eager
-            :lazy-src="src(`./${item.image}`).placeholder"
-            :src="src(`./${item.image}`).src"
-            :srcset="src(`./${item.image}`).srcSet"
-            :style="{
-              backgroundColor: backgroundColor(`./${item.image}`)[0],
-            }"
-            sizes="(max-width: 1785px) 100vw, 1785px"
-            height="500"
-            :to="`/species/${item.name}`"
+        <client-only>
+          <v-carousel
+            cycle
+            hide-delimiters
+            continuous
+            :interval="10000"
+            show-arrows-on-hover
           >
-            <v-container class="fill-height align-items-end justify-start pb-0">
-              <v-row class="align-self-end pb-0" align="end" justify="start">
-                <v-col class="pa-0">
-                  <v-card style="background: rgba(0, 0, 0, 0.3)">
-                    <v-card-text class="pb-0">
-                      {{ item.name }}
-                    </v-card-text>
-                    <v-card-text class="caption">
-                      {{ item.credit }}
-                    </v-card-text>
-                  </v-card>
-                </v-col>
-              </v-row>
-            </v-container>
-          </v-carousel-item>
-        </v-carousel>
+            <v-carousel-item
+              v-for="(item, i) in items"
+              :key="i"
+              eager
+              :lazy-src="src(`./${item.image}`).placeholder"
+              :src="src(`./${item.image}`).src"
+              :srcset="src(`./${item.image}`).srcSet"
+              :style="{
+                backgroundColor: backgroundColor(`./${item.image}`)[0],
+              }"
+              sizes="(max-width: 1785px) 100vw, 1785px"
+              height="500"
+              :to="`/species/${item.name}`"
+            >
+              <v-container
+                class="fill-height align-items-end justify-start pb-0"
+              >
+                <v-row class="align-self-end pb-0" align="end" justify="start">
+                  <v-col class="pa-0">
+                    <v-card style="background: rgba(0, 0, 0, 0.3)">
+                      <v-card-text class="pb-0">
+                        {{ item.name }}
+                      </v-card-text>
+                      <v-card-text class="caption">
+                        {{ item.credit }}
+                      </v-card-text>
+                    </v-card>
+                  </v-col>
+                </v-row>
+              </v-container>
+            </v-carousel-item>
+          </v-carousel>
+        </client-only>
       </v-col>
     </v-row>
   </v-container>
