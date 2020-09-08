@@ -337,6 +337,11 @@ export default {
       false,
       /\.(png|jpe?g|svg).*$/
     ),
+    cover: require.context(
+      `~/assets/img/species?resize&size=1200&format=jpg`,
+      false,
+      /\.(png|jpe?g|svg).*$/
+    ),
   },
   head() {
     return {
@@ -350,17 +355,19 @@ export default {
         {
           hid: 'og:image',
           property: 'og:image',
-          content: this.src(`./${this.item.image}`).src,
+          content: `${this.$config.BASE_URL}${
+            this.cover(`./${this.item.image}`).src
+          }`,
         },
         {
           hid: 'og:image:width',
           property: 'og:image:width',
-          content: '640',
+          content: this.cover(`./${this.item.image}`).width,
         },
         {
           hid: 'og:image:height',
           property: 'og:image:height',
-          content: '360',
+          content: this.cover(`./${this.item.image}`).height,
         },
       ],
     }
