@@ -355,7 +355,9 @@ export default {
         {
           hid: 'og:image',
           property: 'og:image',
-          content: this.cover(`./${this.item.image}`).src,
+          content: `${this.$config.BASE_URL}${
+            this.cover(`./${this.item.image}`).src
+          }`,
         },
         {
           hid: 'og:image:width',
