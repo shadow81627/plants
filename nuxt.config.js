@@ -1,10 +1,27 @@
 import colors from 'vuetify/es5/util/colors'
 import pkg from './package'
 
+const BASE_URL = (
+  process.env.BASE_URL ||
+  process.env.DEPLOY_URL ||
+  process.env.URL ||
+  process.env.VERCEL_URL ||
+  `http${process.env.PORT === 433 ? 's' : ''}://${process.env.HOST}:${
+    process.env.PORT
+  }`
+).replace(/(^http[s]?)?(?::\/\/)?(.*)/, function (
+  _,
+  protocol = 'https',
+  domain
+) {
+  return `${protocol}://${domain}`
+})
+
 const env = {
   VERSION: pkg.version,
   COMMIT: process.env.npm_package_gitHead,
   DATE_GENERATED: new Date().toISOString(),
+  BASE_URL,
   MAPBOX_TOKEN:
     'pk.eyJ1IjoiZGFtaWVucm9iaW5zb24iLCJhIjoiY2tkbDdoMndhMDBqNjJ6cDhkbWg0ZnZ3cSJ9._xNEQMD1mzKuKyb8imU0Ng',
 }
@@ -79,6 +96,19 @@ export default {
       },
     ],
   },
+
+  pwa: {
+    meta: {
+      ogHost: env.BASE_URL,
+      ogImage: {
+        path: '/cover.jpg',
+        width: 1200,
+        height: 600,
+        type: 'image/jpg',
+      },
+    },
+  },
+
   generate: {
     // if you want to use '404.html' instead of the default '200.html'
     fallback: true,
@@ -93,7 +123,6 @@ export default {
    */
   plugins: [
     // { src: 'plugins/theme', mode: 'client' }
-    { src: 'plugins/og-image.js' },
   ],
   /*
    ** Auto import components
