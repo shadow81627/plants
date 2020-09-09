@@ -151,7 +151,7 @@ export default {
       this.scrollToTop()
     }
   },
-  fetchOnServer: false,
+  // fetchOnServer: false,
   data: () => ({
     list: [],
     content: [],
