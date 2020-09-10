@@ -93,5 +93,10 @@ export default {
       },
     ],
   }),
+  head() {
+    return {
+      title: 'Sources',
+    }
+  },
 }
 </script>

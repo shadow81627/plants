@@ -5,6 +5,7 @@
       :clipped="$vuetify.breakpoint.lgAndUp"
       app
       fixed
+      disable-resize-watcher
     >
       <v-list>
         <v-list-item
@@ -32,7 +33,16 @@
           width="2"
         ></v-progress-circular>
       </v-app-bar-nav-icon>
-      <v-toolbar-title v-text="title" />
+      <img
+        :src="`${$icon(24)}`"
+        :srcset="`${$icon(24)} 1x, ${$icon(48)} 2x`"
+        width="24"
+        height="24"
+        onerror="javascript:this.style.display = 'none'"
+      />
+      <v-toolbar-title class="pl-1 d-none d-sm-flex">
+        {{ $config.APP_NAME }}</v-toolbar-title
+      >
       <v-spacer />
       <!-- <user-menu></user-menu> -->
     </v-app-bar>
@@ -147,7 +157,6 @@ export default {
           to: '/sources',
         },
       ],
-      title: 'Free Native Plants',
     }
   },
   mounted() {

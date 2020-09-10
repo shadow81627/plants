@@ -1,13 +1,15 @@
 import colors from 'vuetify/es5/util/colors'
 import pkg from './package'
 
+const HOST = process.env.HOST || '0.0.0.0'
+const PORT = process.env.PORT || '3000'
 const BASE_URL = (
   process.env.BASE_URL ||
   process.env.DEPLOY_URL ||
   process.env.URL ||
   process.env.VERCEL_URL ||
-  `http${process.env.PORT === 433 ? 's' : ''}://${process.env.HOST}:${
-    process.env.PORT
+  `http${PORT === 433 ? 's' : ''}://${HOST}${
+    [433, 80].includes(PORT) ? '' : `:${PORT}`
   }`
 ).replace(/(^http[s]?)?(?::\/\/)?(.*)/, function (
   _,
@@ -18,6 +20,7 @@ const BASE_URL = (
 })
 
 const env = {
+  APP_NAME: process.env.APP_NAME || 'Plants',
   VERSION: pkg.version,
   COMMIT: process.env.npm_package_gitHead,
   DATE_GENERATED: new Date().toISOString(),
@@ -47,11 +50,7 @@ export default {
    ** See https://nuxtjs.org/api/configuration-head
    */
   head: {
-    titleTemplate: (titleChunk) => {
-      const defaultTitle = 'Brisbane City Council Free Native Plants'
-      // If undefined or blank then we don't need the seperator
-      return titleChunk ? `${titleChunk} | ${defaultTitle}` : defaultTitle
-    },
+    titleTemplate: `%s | ${env.APP_NAME}`,
     meta: [
       {
         once: true,
@@ -61,11 +60,7 @@ export default {
       },
       {
         property: 'og:title',
-        template: (titleChunk) => {
-          const defaultTitle = 'Brisbane City Council Free Native Plants'
-          // If undefined or blank then we don't need the hyphen
-          return titleChunk ? `${titleChunk} - ${defaultTitle}` : defaultTitle
-        },
+        template: `%s | ${env.APP_NAME}`,
         hid: 'og:title',
       },
       {
@@ -83,7 +78,7 @@ export default {
         once: true,
         name: 'version',
         hid: 'version',
-        content: pkg.version,
+        content: env.VERSION,
       },
     ],
     link: [
@@ -98,7 +93,12 @@ export default {
   },
 
   pwa: {
+    manifest: {
+      name: env.APP_NAME,
+      short_name: env.APP_NAME,
+    },
     meta: {
+      name: env.APP_NAME,
       ogHost: env.BASE_URL,
       ogImage: {
         path: '/cover.jpg',
@@ -106,6 +106,9 @@ export default {
         height: 600,
         type: 'image/jpg',
       },
+    },
+    icon: {
+      sizes: [24, 48, 64, 120, 144, 152, 192, 384, 512],
     },
   },
 
