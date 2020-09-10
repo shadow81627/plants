@@ -226,7 +226,7 @@ export default {
   },
   head() {
     return {
-      title: 'Plant Species',
+      title: 'Species',
     }
   },
 }
