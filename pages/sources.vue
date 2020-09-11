@@ -2,10 +2,15 @@
   <v-container>
     <v-row>
       <v-col>
-        <h1>Sources</h1>
-        <p>See below sources for data sets used to produce this site.</p>
+        <v-card flat>
+          <v-card-title class="px-0">
+            <h1>{{ title }}</h1>
+          </v-card-title>
+          <v-card-text class="px-0">{{ description }}</v-card-text>
+        </v-card>
       </v-col>
     </v-row>
+
     <v-row>
       <v-col
         v-for="(item, index) in items"
@@ -56,6 +61,9 @@
 <script>
 export default {
   data: () => ({
+    title: 'Sources',
+    description:
+      'See sources for data sets and images used to produce this site.',
     items: [
       {
         name: 'Free Native Plants',
@@ -95,7 +103,8 @@ export default {
   }),
   head() {
     return {
-      title: 'Sources',
+      title: this.title,
+      description: this.description,
     }
   },
 }

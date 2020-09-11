@@ -4,7 +4,7 @@
       v-model="drawer"
       :clipped="$vuetify.breakpoint.lgAndUp"
       app
-      fixed
+      class="hidden-print-only"
       disable-resize-watcher
     >
       <v-list>
@@ -33,16 +33,21 @@
           width="2"
         ></v-progress-circular>
       </v-app-bar-nav-icon>
-      <img
-        :src="`${$icon(24)}`"
-        :srcset="`${$icon(24)} 1x, ${$icon(48)} 2x`"
-        width="24"
-        height="24"
-        onerror="javascript:this.style.display = 'none'"
-      />
-      <v-toolbar-title class="pl-1 d-none d-sm-flex">
-        {{ $config.APP_NAME }}</v-toolbar-title
-      >
+      <v-container fluid class="d-flex pa-0 align-center">
+        <nuxt-link to="/" class="d-flex align-center text-decoration-none">
+          <img
+            :src="`${$icon(24)}`"
+            :srcset="`${$icon(24)} 1x, ${$icon(48)} 2x`"
+            width="24"
+            height="24"
+            onerror="javascript:this.style.display = 'none'"
+          />
+          <v-toolbar-title class="ml-1 d-none d-sm-flex text--primary">
+            {{ $config.APP_NAME }}</v-toolbar-title
+          >
+        </nuxt-link>
+      </v-container>
+
       <v-spacer />
       <!-- <user-menu></user-menu> -->
     </v-app-bar>
@@ -93,22 +98,16 @@
           <v-row no-gutters>
             <v-col cols="auto">
               <v-card flat tile color="transparent">
-                <v-card-text class="py-2 text-left">
-                  <div>
-                    <!-- <nuxt-link to="/">About</nuxt-link> -->
-                    <!-- <span> |</span>
-                    <nuxt-link to="/contact">Contact</nuxt-link> |
-                    <nuxt-link to="/newsletter">Newsletter</nuxt-link> -->
-                  </div>
+                <v-card-text class="pb-0">
                   <span>Made with </span>
                   <span>🌱</span>
                   <span> in Brisbane, Australia</span>
                   <br />
-                  <span
-                    >© 2020 |
-                    <a href="https://daim.dev">Damien Robinson</a></span
-                  >
                 </v-card-text>
+                <v-card-text class="pt-0"
+                  >© 2020 |
+                  <a href="https://daim.dev">Damien Robinson</a></v-card-text
+                >
               </v-card>
             </v-col>
             <v-spacer />

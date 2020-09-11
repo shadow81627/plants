@@ -1,8 +1,8 @@
 <template>
   <client-only>
     <v-card v-if="lastModified" flat tile color="transparent">
-      <v-card-text class="py-2">
-        <span>Last modified</span>
+      <v-card-text class="pb-0">Last Modified</v-card-text>
+      <v-card-text class="pt-0">
         <v-tooltip top>
           <span>{{ relativeDate }}</span>
           <template v-slot:activator="{ on, attrs }">
@@ -35,8 +35,7 @@ export default {
   },
   computed: {
     lastModified() {
-      const lastModified = process.client ? document.lastModified : null
-      return dayjs(lastModified || this.$config.DATE_GENERATED)
+      return dayjs(this.$config.DATE_GENERATED)
     },
   },
   created() {

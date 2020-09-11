@@ -2,7 +2,12 @@
   <v-container>
     <v-row>
       <v-col>
-        <h1>Plant Species</h1>
+        <v-card flat>
+          <v-card-title class="px-0">
+            <h1>{{ title }}</h1>
+          </v-card-title>
+          <v-card-text class="px-0">{{ description }}</v-card-text>
+        </v-card>
       </v-col>
     </v-row>
 
@@ -156,6 +161,9 @@ export default {
     list: [],
     content: [],
     mdiArrowRight,
+    title: 'Native Plant Species',
+    description:
+      'Brisbane City Council offers a variety of native plant species for residents and entities through the Free Native Plant Program, suitable for all garden types and sizes.',
   }),
   computed: {
     types() {
@@ -226,7 +234,8 @@ export default {
   },
   head() {
     return {
-      title: 'Species',
+      title: this.title,
+      description: this.description,
     }
   },
 }
