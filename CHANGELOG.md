@@ -1,5 +1,11 @@
 # Releases
 
+## [1.7.0](https://github.com/shadow81627/brisbane-city-council-free-native-plants/compare/v1.6.4...v1.7.0) (2020-09-11)
+
+### Features
+
+- **about:** features ([#59](https://github.com/shadow81627/brisbane-city-council-free-native-plants/issues/59)) ([6a51a3d](https://github.com/shadow81627/brisbane-city-council-free-native-plants/commit/6a51a3d6470f6be1947744d681253f26515ba752))
+
 ## [1.6.4](https://github.com/shadow81627/brisbane-city-council-free-native-plants/compare/v1.6.3...v1.6.4) (2020-09-09)
 
 ### Bug Fixes
