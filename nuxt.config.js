@@ -146,10 +146,8 @@ export default {
    ** Nuxt.js modules
    */
   modules: [
-    // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
-    // Doc: https://github.com/nuxt/content
     '@nuxt/content',
     '@nuxtjs/markdownit',
     // [
@@ -161,6 +159,9 @@ export default {
     //     ],
     //   },
     // ],
+
+    // keep sitemap last
+    '@nuxtjs/sitemap',
   ],
   /*
    ** Axios module configuration
@@ -223,15 +224,18 @@ export default {
       },
     },
   },
+
+  sitemap: {
+    hostname: BASE_URL,
+    xslUrl: '/sitemap.xsl',
+  },
+
   /*
    ** Build configuration
    ** See https://nuxtjs.org/api/configuration-build/
    */
   build: {
-    filenames: {
-      chunk: ({ isDev }) =>
-        isDev ? '[name].js' : 'chunks/[id].[contenthash].js',
-    },
+    extractCSS: true,
     transpile: ['lodash-es'],
   },
 }
