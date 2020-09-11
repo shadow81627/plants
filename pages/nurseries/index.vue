@@ -2,9 +2,15 @@
   <v-container>
     <v-row>
       <v-col>
-        <h1>Nurseries</h1>
+        <v-card flat>
+          <v-card-title class="px-0">
+            <h1>{{ title }}</h1>
+          </v-card-title>
+          <v-card-text class="px-0">{{ description }}</v-card-text>
+        </v-card>
       </v-col>
     </v-row>
+
     <v-row>
       <v-col
         v-for="(item, index) in items"
@@ -12,7 +18,6 @@
         cols="12"
         sm="6"
         md="4"
-        xlg="3"
         class="d-flex flex-column"
       >
         <v-card
@@ -40,7 +45,7 @@
                 >
               </v-list-item-content>
             </v-list-item>
-            <v-list-item three-line>
+            <v-list-item two-line>
               <v-list-item-icon>
                 <v-icon>{{ mdiPhone }}</v-icon>
               </v-list-item-icon>
@@ -71,6 +76,9 @@ export default {
     items: [],
     mdiMapMarker,
     mdiPhone,
+    title: 'Nurseries',
+    description:
+      "Nurseries and outlets that can supply free native plants under Brisbane City Council's Free Native Plants Program.",
   }),
   methods: {
     startCase,
@@ -80,7 +88,8 @@ export default {
   },
   head() {
     return {
-      title: 'Nurseries',
+      title: this.title,
+      description: this.description,
     }
   },
 }
