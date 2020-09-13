@@ -1,7 +1,7 @@
 {
   "dependencyDashboard": true,
   "rollbackPrs": true,
-  "automerge": false,
+  "automerge": true,
   "bumpVersion": null,
   "labels": ["dependencies"],
   "lockFileMaintenance": { "enabled": true },
