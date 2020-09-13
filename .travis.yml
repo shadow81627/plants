@@ -9,7 +9,7 @@ cache: npm
 script:
   - npm run lint
   # - npm run test
-  - npm run generate
+  - travis_wait npm run generate
   - npm run bundlewatch
   - npm run lhci:autorun
   - npx semantic-release
