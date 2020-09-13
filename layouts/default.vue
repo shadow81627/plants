@@ -34,8 +34,12 @@
         ></v-progress-circular>
       </v-app-bar-nav-icon>
       <v-container fluid class="d-flex pa-0 align-center">
-        <nuxt-link to="/" class="d-flex align-center text-decoration-none">
-          <img
+        <nuxt-link
+          to="/"
+          class="d-flex align-center text-decoration-none"
+          aria-label="Home"
+        >
+          <v-img
             :src="`${$icon(24)}`"
             :srcset="`${$icon(24)} 1x, ${$icon(48)} 2x`"
             width="24"
