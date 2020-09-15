@@ -12,7 +12,7 @@ script:
   - travis_wait npm run generate
   - npm run bundlewatch
   - npm run lhci:autorun
-  - npm run start:test
+  - npm run pm:serve
   - npm run test:e2e
   - npx semantic-release
 
