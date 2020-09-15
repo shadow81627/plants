@@ -15,7 +15,7 @@ exports.config = {
     //   waitForNavigation: 'networkidle0',
     // },
     Puppeteer: {
-      url: 'http://localhost:3001',
+      url: process.env.BASE_URL || 'http://localhost:3001',
       show: true,
       waitForNavigation: 'networkidle0',
     },

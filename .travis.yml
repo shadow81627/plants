@@ -16,10 +16,10 @@ script:
 
 deploy:
   - provider: surge
-    domain: https://brisbane-city-council-free-native-plants.surge.sh
     project: ./dist
-    # edge: true # opt in to dpl v2
+    edge: true # opt in to dpl v2
     skip_cleanup: true
+    cleanup: false
     on:
       all_branches: true
 
