@@ -16,17 +16,12 @@ script:
 
 deploy:
   - provider: surge
-    domain: brisbane-city-council-free-native-plants.daim.dev
     project: ./dist
-    # edge: true # opt in to dpl v2
+    edge: true # opt in to dpl v2
     skip_cleanup: true
-    on:
-      branch: master
-
-  - provider: surge
-    domain: staging.brisbane-city-council-free-native-plants.daim.dev
-    project: ./dist
-    # edge: true # opt in to dpl v2
-    skip_cleanup: true
+    cleanup: false
     on:
       all_branches: true
+
+after_deploy:
+  - npm run test:e2e
