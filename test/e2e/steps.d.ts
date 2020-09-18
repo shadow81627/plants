@@ -1,5 +1,5 @@
 /// <reference types='codeceptjs' />
-type ResembleHelper = import('codeceptjs-resemblehelper')
+// type ResembleHelper = import('codeceptjs-resemblehelper')
 
 declare namespace CodeceptJS {
   interface SupportObject {
@@ -8,7 +8,10 @@ declare namespace CodeceptJS {
   interface CallbackOrder {
     [0]: CodeceptJS.I
   }
-  interface Methods extends CodeceptJS.Puppeteer, ResembleHelper {}
+  interface Methods extends CodeceptJS.Puppeteer {
+    // ResembleHelper
+    seeVisualDiff: Function
+  }
   interface I extends WithTranslation<Methods> {}
   namespace Translation {
     interface Actions {}
