@@ -1,5 +1,11 @@
 # Releases
 
+## [1.7.5](https://github.com/shadow81627/brisbane-city-council-free-native-plants/compare/v1.7.4...v1.7.5) (2020-09-28)
+
+### Bug Fixes
+
+- **deps:** update dependency dayjs to v1.9.1 ([b13081d](https://github.com/shadow81627/brisbane-city-council-free-native-plants/commit/b13081d996f7183cabe3fbc4771074f970f7b9a0))
+
 ## [1.7.4](https://github.com/shadow81627/brisbane-city-council-free-native-plants/compare/v1.7.3...v1.7.4) (2020-09-28)
 
 ### Bug Fixes
