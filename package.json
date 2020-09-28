@@ -36,7 +36,7 @@
     "@nuxtjs/markdownit": "1.2.10",
     "@nuxtjs/pwa": "3.0.2",
     "@nuxtjs/sitemap": "2.4.0",
-    "dayjs": "1.9.0",
+    "dayjs": "1.9.1",
     "github-markdown-css": "4.0.0",
     "lodash-es": "4.17.15",
     "mapbox-gl": "1.12.0",
