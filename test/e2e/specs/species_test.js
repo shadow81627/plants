@@ -2,7 +2,7 @@
 
 Feature('Species')
 
-Scenario('Find a Species', async (I) => {
+Scenario('Find a Species', async ({ I }) => {
   I.amOnPage('/species')
   I.click(
     '#app > div > main > div > div > div.v-data-iterator > div > div:nth-child(1) > div > a'
