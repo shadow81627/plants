@@ -1,5 +1,11 @@
 # Releases
 
+## [1.7.7](https://github.com/shadow81627/brisbane-city-council-free-native-plants/compare/v1.7.6...v1.7.7) (2020-10-07)
+
+### Bug Fixes
+
+- **deps:** update dependency @nuxtjs/pwa to v3.1.1 ([88a7eeb](https://github.com/shadow81627/brisbane-city-council-free-native-plants/commit/88a7eebf208c4fc38240864b2029e5c0b0fe6816))
+
 ## [1.7.6](https://github.com/shadow81627/brisbane-city-council-free-native-plants/compare/v1.7.5...v1.7.6) (2020-10-06)
 
 ### Bug Fixes

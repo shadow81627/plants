@@ -1,7 +1,7 @@
 {
   "name": "brisbane-city-council-free-native-plants",
   "description": "Council’s Free Native Plants program offers a range of plants to assist you to plant and green your property. The native species provided through the program help grow our city’s urban forest and support local wildlife.",
-  "version": "1.7.6",
+  "version": "1.7.7",
   "private": true,
   "scripts": {
     "dev": "nuxt-ts",
