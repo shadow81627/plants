@@ -1,5 +1,16 @@
 # Releases
 
+## [1.7.19](https://github.com/shadow81627/brisbane-city-council-free-native-plants/compare/v1.7.18...v1.7.19) (2020-12-13)
+
+### Bug Fixes
+
+- **deps:** update dependency @nuxtjs/axios to v5.12.3 ([c1bca1f](https://github.com/shadow81627/brisbane-city-council-free-native-plants/commit/c1bca1f2087af95571f7a085bbc16dbaedc897ef))
+- **deps:** update dependency @nuxtjs/pwa to v3.3.0 ([c08d243](https://github.com/shadow81627/brisbane-city-council-free-native-plants/commit/c08d2436b9c4460ca6de407affdb2aac592cf4b2))
+- **deps:** update dependency @nuxtjs/pwa to v3.3.1 ([890ce49](https://github.com/shadow81627/brisbane-city-council-free-native-plants/commit/890ce490cc812e2cd401b075dd549cf893c24a4b))
+- **deps:** update dependency @nuxtjs/pwa to v3.3.2 ([26c2f7a](https://github.com/shadow81627/brisbane-city-council-free-native-plants/commit/26c2f7abad44a182a1c06c50b75bcf5d058d2959))
+- **deps:** update dependency dayjs to v1.9.7 ([f148b2c](https://github.com/shadow81627/brisbane-city-council-free-native-plants/commit/f148b2c8183ab69e98c58ba77fc7f346a5d0b70e))
+- **deps:** update dependency mapbox-gl to v2 ([08f86d4](https://github.com/shadow81627/brisbane-city-council-free-native-plants/commit/08f86d4d118cfbf3b4143595b65c29cc344243ad))
+
 ## [1.7.18](https://github.com/shadow81627/brisbane-city-council-free-native-plants/compare/v1.7.17...v1.7.18) (2020-11-25)
 
 ### Bug Fixes
