@@ -9,15 +9,15 @@
 import 'github-markdown-css/github-markdown.css'
 import content from '@/CHANGELOG.md'
 export default {
-  computed: {
-    content() {
-      return content
-    },
-  },
   head() {
     return {
       title: 'Releases',
     }
+  },
+  computed: {
+    content() {
+      return content
+    },
   },
 }
 </script>

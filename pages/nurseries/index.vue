@@ -67,11 +67,6 @@
 import { mdiMapMarker, mdiPhone } from '@mdi/js'
 import { startCase } from 'lodash-es'
 export default {
-  async fetch() {
-    const result = await this.$content('nurseries').fetch()
-    const { body } = result
-    this.items = body
-  },
   data: () => ({
     items: [],
     mdiMapMarker,
@@ -80,17 +75,22 @@ export default {
     description:
       "Nurseries and outlets that can supply free native plants under Brisbane City Council's Free Native Plants Program.",
   }),
-  methods: {
-    startCase,
-    truncate(text = '', stop = 150, clamp = '...') {
-      return `${text.slice(0, stop)}${stop < text.length ? clamp : ''}`
-    },
+  async fetch() {
+    const result = await this.$content('nurseries').fetch()
+    const { body } = result
+    this.items = body
   },
   head() {
     return {
       title: this.title,
       description: this.description,
     }
+  },
+  methods: {
+    startCase,
+    truncate(text = '', stop = 150, clamp = '...') {
+      return `${text.slice(0, stop)}${stop < text.length ? clamp : ''}`
+    },
   },
 }
 </script>
