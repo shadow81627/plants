@@ -12,7 +12,6 @@ module.exports = {
         '/releases/',
       ],
       staticDistDir: './dist',
-      numberOfRuns: 5,
     },
     upload: {
       target: 'temporary-public-storage',
