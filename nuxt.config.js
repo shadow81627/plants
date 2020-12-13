@@ -150,15 +150,6 @@ export default {
     '@nuxtjs/pwa',
     '@nuxt/content',
     '@nuxtjs/markdownit',
-    // [
-    //   'vue-warehouse/nuxt',
-    //   {
-    //     storages: [
-    //       // 'store/storages/localStorage',
-    //       // 'store/storages/cookieStorage',
-    //     ],
-    //   },
-    // ],
 
     // keep sitemap last
     '@nuxtjs/sitemap',
