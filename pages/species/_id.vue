@@ -317,32 +317,6 @@ export default {
     waterwise: {},
     mdiArrowRight,
   }),
-  computed: {
-    commonName() {
-      return startCase(this.item.species.split('(')[0].trim())
-    },
-    botanicalName() {
-      return this.item.species.split('(')[1].replace(/\)+$/, '').trim()
-    },
-  },
-  methods: {
-    startCase,
-    backgroundColor: require.context(
-      '~/assets/img/species?lqip-colors',
-      false,
-      /\.(png|jpe?g|svg).*$/
-    ),
-    src: require.context(
-      `~/assets/img/species?resize&sizes[]=320&sizes[]=600&sizes[]=900&sizes[]=1785&sizes[]=4686&placeholder&format=webp`,
-      false,
-      /\.(png|jpe?g|svg).*$/
-    ),
-    cover: require.context(
-      `~/assets/img/species?resize&size=1200&format=jpg`,
-      false,
-      /\.(png|jpe?g|svg).*$/
-    ),
-  },
   head() {
     return {
       title: this.item.species,
@@ -371,6 +345,32 @@ export default {
         },
       ],
     }
+  },
+  computed: {
+    commonName() {
+      return startCase(this.item.species.split('(')[0].trim())
+    },
+    botanicalName() {
+      return this.item.species.split('(')[1].replace(/\)+$/, '').trim()
+    },
+  },
+  methods: {
+    startCase,
+    backgroundColor: require.context(
+      '~/assets/img/species?lqip-colors',
+      false,
+      /\.(png|jpe?g|svg).*$/
+    ),
+    src: require.context(
+      `~/assets/img/species?resize&sizes[]=320&sizes[]=600&sizes[]=900&sizes[]=1785&sizes[]=4686&placeholder&format=webp`,
+      false,
+      /\.(png|jpe?g|svg).*$/
+    ),
+    cover: require.context(
+      `~/assets/img/species?resize&size=1200&format=jpg`,
+      false,
+      /\.(png|jpe?g|svg).*$/
+    ),
   },
 }
 </script>
