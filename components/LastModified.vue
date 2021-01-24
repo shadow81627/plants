@@ -5,7 +5,7 @@
       <v-card-text class="pt-0">
         <v-tooltip top>
           <span>{{ relativeDate }}</span>
-          <template v-slot:activator="{ on, attrs }">
+          <template #activator="{ on, attrs }">
             <span v-bind="attrs" v-on="on">{{
               lastModified.format('MMM D, YYYY h:mm A')
             }}</span>
