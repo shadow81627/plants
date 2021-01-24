@@ -9,6 +9,16 @@ export default {
     lng: { type: Number, required: true },
     lat: { type: Number, required: true },
   },
+  head() {
+    return {
+      link: [
+        {
+          href: 'https://api.mapbox.com/mapbox-gl-js/v1.11.1/mapbox-gl.css',
+          rel: 'stylesheet',
+        },
+      ],
+    }
+  },
   mounted() {
     if (this.$config.MAPBOX_TOKEN) {
       // TO MAKE THE MAP APPEAR YOU MUST
@@ -24,16 +34,6 @@ export default {
 
       // const marker =
       new mapboxgl.Marker().setLngLat([this.lng, this.lat]).addTo(map)
-    }
-  },
-  head() {
-    return {
-      link: [
-        {
-          href: 'https://api.mapbox.com/mapbox-gl-js/v1.11.1/mapbox-gl.css',
-          rel: 'stylesheet',
-        },
-      ],
     }
   },
 }

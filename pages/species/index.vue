@@ -40,7 +40,7 @@
       :items-per-page="-1"
       item-key="Species"
     >
-      <template v-slot:default="{ items }">
+      <template #default="{ items }">
         <v-row>
           <v-col
             v-for="(item, index) in items"
@@ -136,6 +136,15 @@
 import { mdiArrowRight } from '@mdi/js'
 import { startCase, uniq, debounce, flatten } from 'lodash-es'
 export default {
+  // fetchOnServer: false,
+  data: () => ({
+    list: [],
+    content: [],
+    mdiArrowRight,
+    title: 'Native Plant Species',
+    description:
+      'Brisbane City Council offers a variety of native plant species for residents and entities through the Free Native Plant Program, suitable for all garden types and sizes.',
+  }),
   async fetch() {
     const result = await this.$content('species').fetch()
     const { body } = result
@@ -156,15 +165,12 @@ export default {
       this.scrollToTop()
     }
   },
-  // fetchOnServer: false,
-  data: () => ({
-    list: [],
-    content: [],
-    mdiArrowRight,
-    title: 'Native Plant Species',
-    description:
-      'Brisbane City Council offers a variety of native plant species for residents and entities through the Free Native Plant Program, suitable for all garden types and sizes.',
-  }),
+  head() {
+    return {
+      title: this.title,
+      description: this.description,
+    }
+  },
   computed: {
     types() {
       const values = uniq(
@@ -231,12 +237,6 @@ export default {
       false,
       /\.(png|jpe?g|svg).*$/
     ),
-  },
-  head() {
-    return {
-      title: this.title,
-      description: this.description,
-    }
   },
 }
 </script>

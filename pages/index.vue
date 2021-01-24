@@ -176,6 +176,13 @@ import {
   mdiOpenSourceInitiative,
 } from '@mdi/js'
 export default {
+  data: () => ({
+    items: [],
+    mdiSprout,
+    mdiStore,
+    mdiDatabase,
+    mdiOpenSourceInitiative,
+  }),
   async fetch() {
     const content = await this.$content('species').fetch()
     const { body } = content
@@ -190,13 +197,11 @@ export default {
     )
     this.items = result
   },
-  data: () => ({
-    items: [],
-    mdiSprout,
-    mdiStore,
-    mdiDatabase,
-    mdiOpenSourceInitiative,
-  }),
+  head() {
+    return {
+      title: 'About',
+    }
+  },
   methods: {
     backgroundColor: require.context(
       '~/assets/img/species?lqip-colors',
@@ -208,11 +213,6 @@ export default {
       false,
       /\.(png|jpe?g|svg).*$/
     ),
-  },
-  head() {
-    return {
-      title: 'About',
-    }
   },
 }
 </script>
