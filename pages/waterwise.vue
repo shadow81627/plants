@@ -13,14 +13,14 @@
 
 <script>
 export default {
+  data: () => ({
+    list: [],
+  }),
   async fetch() {
     const result = await this.$content('waterwise-plants').fetch()
     const { body } = result
     this.list = body ?? []
   },
   fetchOnServer: false,
-  data: () => ({
-    list: [],
-  }),
 }
 </script>

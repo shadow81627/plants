@@ -168,7 +168,6 @@
 </template>
 
 <script>
-import { shuffle } from 'lodash-es'
 import {
   mdiSprout,
   mdiStore,
@@ -176,20 +175,6 @@ import {
   mdiOpenSourceInitiative,
 } from '@mdi/js'
 export default {
-  async fetch() {
-    const content = await this.$content('species').fetch()
-    const { body } = content
-    const result = shuffle(
-      body
-        .filter((item) => item.image)
-        .map((item) => ({
-          name: item.species,
-          image: item.image,
-          credit: item.credit,
-        }))
-    )
-    this.items = result
-  },
   data: () => ({
     items: [],
     mdiSprout,
@@ -197,6 +182,23 @@ export default {
     mdiDatabase,
     mdiOpenSourceInitiative,
   }),
+  async fetch() {
+    const content = await this.$content('species').fetch()
+    const { body } = content
+    const result = body
+      .filter((item) => item.image)
+      .map((item) => ({
+        name: item.species,
+        image: item.image,
+        credit: item.credit,
+      }))
+    this.items = result
+  },
+  head() {
+    return {
+      title: 'About',
+    }
+  },
   methods: {
     backgroundColor: require.context(
       '~/assets/img/species?lqip-colors',
@@ -208,11 +210,6 @@ export default {
       false,
       /\.(png|jpe?g|svg).*$/
     ),
-  },
-  head() {
-    return {
-      title: 'About',
-    }
   },
 }
 </script>
