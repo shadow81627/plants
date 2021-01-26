@@ -9,9 +9,15 @@ Scenario('Find a Species', async ({ I }) => {
   )
 
   I.saveScreenshot('species_list.png')
-  await I.seeVisualDiff('species_list.png')
+  await I.seeVisualDiff('species_list.png', {
+    prepareBaseImage: true,
+    tolerance: 1,
+  })
 
   I.amOnPage('/species/Creeping%20boobialla%20(Myoporum%20parvifolium)')
   I.saveScreenshot('species_details.png')
-  await I.seeVisualDiff('species_details.png', { tolerance: 1 })
+  await I.seeVisualDiff('species_details.png', {
+    prepareBaseImage: true,
+    tolerance: 1,
+  })
 })

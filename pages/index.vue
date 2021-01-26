@@ -168,7 +168,6 @@
 </template>
 
 <script>
-import { shuffle } from 'lodash-es'
 import {
   mdiSprout,
   mdiStore,
@@ -186,15 +185,13 @@ export default {
   async fetch() {
     const content = await this.$content('species').fetch()
     const { body } = content
-    const result = shuffle(
-      body
-        .filter((item) => item.image)
-        .map((item) => ({
-          name: item.species,
-          image: item.image,
-          credit: item.credit,
-        }))
-    )
+    const result = body
+      .filter((item) => item.image)
+      .map((item) => ({
+        name: item.species,
+        image: item.image,
+        credit: item.credit,
+      }))
     this.items = result
   },
   head() {
