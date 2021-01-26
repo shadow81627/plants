@@ -27,11 +27,6 @@ const env = {
 
 export default {
   /*
-   ** Nuxt rendering mode
-   ** See https://nuxtjs.org/api/configuration-mode
-   */
-  mode: 'universal',
-  /*
    ** Nuxt target
    ** See https://nuxtjs.org/api/configuration-target
    */
@@ -86,6 +81,7 @@ export default {
         href: '/favicon.ico',
       },
     ],
+    noscript: [{ innerHTML: 'This website requires JavaScript.' }],
   },
 
   pwa: {
@@ -96,6 +92,7 @@ export default {
     meta: {
       name: env.APP_NAME,
       ogHost: env.BASE_URL,
+      theme_color: '#ffffff',
       ogImage: {
         path: '/cover.jpg',
         width: 1200,
