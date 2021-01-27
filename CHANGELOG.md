@@ -1,5 +1,11 @@
 # Releases
 
+## [1.7.25](https://github.com/shadow81627/brisbane-city-council-free-native-plants/compare/v1.7.24...v1.7.25) (2021-01-27)
+
+### Bug Fixes
+
+- **deps:** update dependency mapbox-gl to v2.0.1 ([4834133](https://github.com/shadow81627/brisbane-city-council-free-native-plants/commit/4834133db2c5b6537f6bff1aff77644a0a2acdf5))
+
 ## [1.7.24](https://github.com/shadow81627/brisbane-city-council-free-native-plants/compare/v1.7.23...v1.7.24) (2021-01-27)
 
 ### Bug Fixes
