@@ -33,7 +33,7 @@
     "@nuxt/content": "1.11.1",
     "@nuxt/typescript-runtime": "2.0.1",
     "@nuxtjs/axios": "5.12.5",
-    "@nuxtjs/markdownit": "1.2.10",
+    "@nuxtjs/markdownit": "2.0.0",
     "@nuxtjs/pwa": "3.3.5",
     "@nuxtjs/sitemap": "2.4.0",
     "dayjs": "1.10.4",
