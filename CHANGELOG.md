@@ -1,5 +1,11 @@
 # Releases
 
+## [1.7.26](https://github.com/shadow81627/brisbane-city-council-free-native-plants/compare/v1.7.25...v1.7.26) (2021-01-27)
+
+### Bug Fixes
+
+- **deps:** update dependency @nuxtjs/markdownit to v2 ([f5f4bb6](https://github.com/shadow81627/brisbane-city-council-free-native-plants/commit/f5f4bb6ec3bb56b15f70ed958986169dc9be11c9))
+
 ## [1.7.25](https://github.com/shadow81627/brisbane-city-council-free-native-plants/compare/v1.7.24...v1.7.25) (2021-01-27)
 
 ### Bug Fixes
