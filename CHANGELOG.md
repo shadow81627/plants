@@ -1,5 +1,11 @@
 # Releases
 
+## [1.7.24](https://github.com/shadow81627/brisbane-city-council-free-native-plants/compare/v1.7.23...v1.7.24) (2021-01-27)
+
+### Bug Fixes
+
+- **deps:** update dependency lodash-es to v4.17.20 ([395bd3b](https://github.com/shadow81627/brisbane-city-council-free-native-plants/commit/395bd3b47bf1a6daa2845752ec75833973966758))
+
 ## [1.7.23](https://github.com/shadow81627/brisbane-city-council-free-native-plants/compare/v1.7.22...v1.7.23) (2021-01-27)
 
 ### Bug Fixes
