@@ -1,5 +1,11 @@
 # Releases
 
+## [1.7.30](https://github.com/shadow81627/brisbane-city-council-free-native-plants/compare/v1.7.29...v1.7.30) (2021-02-09)
+
+### Bug Fixes
+
+- **deps:** update dependency @nuxtjs/axios to v5.13.1 ([7a73868](https://github.com/shadow81627/brisbane-city-council-free-native-plants/commit/7a738680a12dc19afdc0e0a40518bf6d10c7807d))
+
 ## [1.7.29](https://github.com/shadow81627/brisbane-city-council-free-native-plants/compare/v1.7.28...v1.7.29) (2021-02-08)
 
 ### Bug Fixes
