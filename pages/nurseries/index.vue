@@ -66,7 +66,19 @@
 <script>
 import { mdiMapMarker, mdiPhone } from '@mdi/js'
 import { startCase } from 'lodash-es'
+import { saveFile } from '~/utils/saveFile'
 export default {
+  async asyncData({ $content }) {
+    const result = await $content('nurseries').fetch()
+    const { body } = result
+    const items = body
+    const folder = '/content/nurseries'
+    for (const item of items) {
+      await saveFile({ id: item.Nursery, folder, item })
+    }
+
+    return { items }
+  },
   data: () => ({
     items: [],
     mdiMapMarker,
@@ -75,11 +87,6 @@ export default {
     description:
       "Nurseries and outlets that can supply free native plants under Brisbane City Council's Free Native Plants Program.",
   }),
-  async fetch() {
-    const result = await this.$content('nurseries').fetch()
-    const { body } = result
-    this.items = body
-  },
   head() {
     return {
       title: this.title,

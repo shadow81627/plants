@@ -221,5 +221,10 @@ export default {
   build: {
     extractCSS: true,
     transpile: ['lodash-es'],
+    // extend(config) {
+    //   config.node = {
+    //     fs: 'empty',
+    //   }
+    // },
   },
 }

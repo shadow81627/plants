@@ -82,6 +82,7 @@
     "responsive-loader": "2.2.1",
     "serve-handler": "6.1.3",
     "sharp": "0.26.2",
+    "slugify": "1.4.6",
     "sqip-loader": "1.0.0",
     "stylelint": "13.8.0",
     "stylelint-config-prettier": "8.0.2",
