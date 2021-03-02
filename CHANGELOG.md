@@ -1,5 +1,11 @@
 # Releases
 
+## [1.7.35](https://github.com/shadow81627/brisbane-city-council-free-native-plants/compare/v1.7.34...v1.7.35) (2021-03-02)
+
+### Bug Fixes
+
+- **deps:** update dependency @nuxt/content to v1.14.0 ([12cdd4d](https://github.com/shadow81627/brisbane-city-council-free-native-plants/commit/12cdd4d2daceead59c605e621fbdc8d97933c36d))
+
 ## [1.7.34](https://github.com/shadow81627/brisbane-city-council-free-native-plants/compare/v1.7.33...v1.7.34) (2021-03-01)
 
 ### Bug Fixes
