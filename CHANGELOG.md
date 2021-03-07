@@ -1,5 +1,11 @@
 # Releases
 
+## [1.7.36](https://github.com/shadow81627/brisbane-city-council-free-native-plants/compare/v1.7.35...v1.7.36) (2021-03-07)
+
+### Bug Fixes
+
+- **deps:** update dependency @nuxt/typescript-runtime to v2.1.0 ([b23347d](https://github.com/shadow81627/brisbane-city-council-free-native-plants/commit/b23347dab369476e994eb2c86226dbebdc443fd5))
+
 ## [1.7.35](https://github.com/shadow81627/brisbane-city-council-free-native-plants/compare/v1.7.34...v1.7.35) (2021-03-02)
 
 ### Bug Fixes
