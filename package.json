@@ -39,7 +39,7 @@
     "dayjs": "1.10.4",
     "github-markdown-css": "4.0.0",
     "lodash-es": "4.17.21",
-    "mapbox-gl": "2.1.1",
+    "mapbox-gl": "2.2.0",
     "nuxt": "2.15.3",
     "store": "2.0.12",
     "vue-warehouse": "2.2.0"
