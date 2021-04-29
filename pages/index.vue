@@ -1,61 +1,26 @@
 <template>
   <div>
-    <v-container
-      fluid
-      class="pa-0"
-      style="min-height: 500px; max-width: 1785px"
-    >
-      <v-row no-gutters>
-        <v-col>
-          <client-only>
-            <v-carousel
-              cycle
-              hide-delimiters
-              continuous
-              :interval="10000"
-              show-arrows-on-hover
-            >
-              <v-carousel-item
-                v-for="(item, i) in items"
-                :key="i"
-                eager
-                :lazy-src="src(`./${item.image}`).placeholder"
-                :src="src(`./${item.image}`).src"
-                :srcset="src(`./${item.image}`).srcSet"
-                :style="{
-                  backgroundColor: backgroundColor(`./${item.image}`)[0],
-                }"
-                sizes="(max-width: 1785px) 100vw, 1785px"
-                height="500"
-                :to="`/species/${item.name}`"
-              >
-                <v-container
-                  class="fill-height align-items-end justify-start pb-0"
-                  fluid
-                >
-                  <v-row
-                    class="align-self-end pb-0"
-                    align="end"
-                    justify="start"
-                  >
-                    <v-col class="pa-0">
-                      <v-card style="background: rgba(0, 0, 0, 0.3)">
-                        <v-card-text class="pb-0">
-                          {{ item.name }}
-                        </v-card-text>
-                        <v-card-text class="caption">
-                          {{ item.credit }}
-                        </v-card-text>
-                      </v-card>
-                    </v-col>
-                  </v-row>
-                </v-container>
-              </v-carousel-item>
-            </v-carousel>
-          </client-only>
-        </v-col>
-      </v-row>
-    </v-container>
+    <Hero :items="items">
+      <template #item="{ item }">
+        <v-container
+          class="fill-height align-items-end justify-start pb-0"
+          fluid
+        >
+          <v-row class="align-self-end pb-0" align="end" justify="start">
+            <v-col class="pa-0">
+              <v-card style="background: rgba(0, 0, 0, 0.3)">
+                <v-card-text class="pb-0">
+                  {{ item.name }}
+                </v-card-text>
+                <v-card-text class="caption">
+                  {{ item.credit }}
+                </v-card-text>
+              </v-card>
+            </v-col>
+          </v-row>
+        </v-container>
+      </template>
+    </Hero>
     <v-container>
       <v-row>
         <v-col>
@@ -189,7 +154,7 @@ export default {
       .filter((item) => item.image)
       .map((item) => ({
         name: item.species,
-        image: item.image,
+        src: `/img/species/${item.image}`,
         credit: item.credit,
       }))
     this.items = result
@@ -198,18 +163,6 @@ export default {
     return {
       title: 'About',
     }
-  },
-  methods: {
-    backgroundColor: require.context(
-      '~/assets/img/species?lqip-colors',
-      false,
-      /\.(png|jpe?g|svg).*$/
-    ),
-    src: require.context(
-      `~/assets/img/species?resize&sizes[]=320&sizes[]=600&sizes[]=900&sizes[]=1785&sizes[]=4686&placeholder&format=webp`,
-      false,
-      /\.(png|jpe?g|svg).*$/
-    ),
   },
 }
 </script>

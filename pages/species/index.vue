@@ -60,14 +60,24 @@
                 :ripple="false"
               >
                 <v-img
-                  :lazy-src="src(`./${item.image}`).placeholder"
-                  :src="src(`./${item.image}`).src"
-                  :srcset="src(`./${item.image}`).srcSet"
+                  v-if="item.image"
+                  :lazy-src="
+                    $img(`/img/species/${item.image}`, {
+                      width: 10,
+                      quality: 70,
+                    })
+                  "
+                  :src="
+                    $img(`/img/species/${item.image}`, {
+                      quality: 70,
+                      width: 600,
+                    })
+                  "
+                  :srcset="_srcset(`/img/species/${item.image}`).srcset"
                   :aspect-ratio="16 / 9"
-                  :style="{
-                    backgroundColor: backgroundColor(`./${item.image}`)[0],
-                  }"
-                />
+                  :sizes="_srcset.size"
+                  class="flex-grow-0"
+                ></v-img>
                 <v-card-title>
                   {{ startCase(item.species.split('(')[0].trim()) }}
                 </v-card-title>
@@ -135,7 +145,9 @@
 <script>
 import { mdiArrowRight } from '@mdi/js'
 import { startCase, uniq, debounce, flatten } from 'lodash-es'
+import ImageSources from '@/mixins/srcset'
 export default {
+  mixins: [ImageSources],
   // fetchOnServer: false,
   data: () => ({
     list: [],
@@ -227,16 +239,6 @@ export default {
     scrollToTop() {
       window.scrollTo(0, 0)
     },
-    backgroundColor: require.context(
-      '~/assets/img/species?lqip-colors',
-      false,
-      /\.(png|jpe?g|svg).*$/
-    ),
-    src: require.context(
-      `~/assets/img/species?resize&sizes[]=320&sizes[]=640&sizes[]=960&placeholder&format=webp`,
-      false,
-      /\.(png|jpe?g|svg).*$/
-    ),
   },
 }
 </script>

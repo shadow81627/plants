@@ -3,39 +3,34 @@
     <v-row>
       <v-col class="d-flex flex-column">
         <v-card class="flex d-flex flex-column justify-between">
-          <v-img
-            :lazy-src="src(`./${item.image}`).placeholder"
-            :src="src(`./${item.image}`).src"
-            :srcset="src(`./${item.image}`).srcSet"
-            :aspect-ratio="16 / 9"
-            :style="{
-              backgroundColor: backgroundColor(`./${item.image}`)[0],
-            }"
-            sizes="(max-width: 1785px) 100vw, 1785px"
-            dark
-          >
-            <v-container
-              v-if="$vuetify.breakpoint.lgAndUp"
-              class="fill-height align-items-end justify-start pb-0"
-            >
-              <v-row class="align-self-end pb-0" align="end" justify="start">
-                <v-col class="pa-0">
-                  <v-card style="background: rgba(0, 0, 0, 0.3)">
-                    <v-card-title>
-                      <h1 class="text-break text-wrap">
-                        {{ startCase(item.species.split('(')[0].trim()) }} ({{
-                          item.species.split('(')[1].replace(/\)+$/, '').trim()
-                        }})
-                      </h1>
-                    </v-card-title>
-                    <!-- <v-card-text class="caption text-no-wrap">
+          <Hero :src="`/img/species/${item.image}`">
+            <template #item>
+              <v-container
+                v-if="$vuetify.breakpoint.lgAndUp"
+                class="fill-height align-items-end justify-start pb-0"
+              >
+                <v-row class="align-self-end pb-0" align="end" justify="start">
+                  <v-col class="pa-0">
+                    <v-card style="background: rgba(0, 0, 0, 0.3)">
+                      <v-card-title>
+                        <h1 class="text-break text-wrap">
+                          {{ startCase(item.species.split('(')[0].trim()) }} ({{
+                            item.species
+                              .split('(')[1]
+                              .replace(/\)+$/, '')
+                              .trim()
+                          }})
+                        </h1>
+                      </v-card-title>
+                      <!-- <v-card-text class="caption text-no-wrap">
                       {{ item.credit }}
                     </v-card-text> -->
-                  </v-card>
-                </v-col>
-              </v-row>
-            </v-container>
-          </v-img>
+                    </v-card>
+                  </v-col>
+                </v-row>
+              </v-container>
+            </template>
+          </Hero>
 
           <div v-if="$vuetify.breakpoint.mdAndDown">
             <v-card-title>
@@ -114,32 +109,6 @@
                 <v-card-subtitle class="pb-0">Aromatic</v-card-subtitle>
                 <v-card-text class="text--primary">
                   {{ waterwise['Aromatic'] }}
-                </v-card-text>
-
-                <v-card-subtitle class="pb-0">Colours</v-card-subtitle>
-                <v-card-text class="text--primary">
-                  <span
-                    v-for="color in require(`@/assets/img/species/${item.image}?lqip-colors`)"
-                    :key="color"
-                  >
-                    <span style="display: inline-flex; align-self: bottom">
-                      <svg
-                        style="
-                          height: 1em;
-                          width: 1em;
-                          top: 0.125em;
-                          position: relative;
-                        "
-                      >
-                        <rect
-                          :fill="color.toLowerCase()"
-                          style="height: 1em; width: 1em"
-                        ></rect>
-                      </svg>
-                    </span>
-                    <!-- <span>{{ color }}</span> -->
-                    <!-- <span> </span> -->
-                  </span>
                 </v-card-text>
 
                 <v-card-subtitle class="pb-0">Flower Colour</v-card-subtitle>
@@ -326,23 +295,6 @@ export default {
           name: 'description',
           content: this.item.description,
         },
-        {
-          hid: 'og:image',
-          property: 'og:image',
-          content: `${this.$config.BASE_URL}${
-            this.cover(`./${this.item.image}`).src
-          }`,
-        },
-        {
-          hid: 'og:image:width',
-          property: 'og:image:width',
-          content: this.cover(`./${this.item.image}`).width,
-        },
-        {
-          hid: 'og:image:height',
-          property: 'og:image:height',
-          content: this.cover(`./${this.item.image}`).height,
-        },
       ],
     }
   },
@@ -356,21 +308,6 @@ export default {
   },
   methods: {
     startCase,
-    backgroundColor: require.context(
-      '~/assets/img/species?lqip-colors',
-      false,
-      /\.(png|jpe?g|svg).*$/
-    ),
-    src: require.context(
-      `~/assets/img/species?resize&sizes[]=320&sizes[]=600&sizes[]=900&sizes[]=1785&sizes[]=4686&placeholder&format=webp`,
-      false,
-      /\.(png|jpe?g|svg).*$/
-    ),
-    cover: require.context(
-      `~/assets/img/species?resize&size=1200&format=jpg`,
-      false,
-      /\.(png|jpe?g|svg).*$/
-    ),
   },
 }
 </script>
