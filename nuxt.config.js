@@ -124,7 +124,7 @@ export default {
    ** Auto import components
    ** See https://nuxtjs.org/api/configuration-components
    */
-  // components: true,
+  components: ['~/components'],
   /*
    ** Nuxt.js dev-modules
    */
@@ -133,7 +133,7 @@ export default {
     // Doc: https://github.com/nuxt-community/stylelint-module
     '@nuxtjs/stylelint-module',
     '@nuxtjs/vuetify',
-    '@aceforth/nuxt-optimized-images',
+    '@nuxt/image',
   ],
   /*
    ** Nuxt.js modules
@@ -190,28 +190,23 @@ export default {
       },
     },
   },
-  optimizedImages: {
-    optimizeImages: true,
-    optimizeImagesInDev: true,
-    responsive: {
-      quality: 50,
-      adapter: require('responsive-loader/sharp'),
-      sizes: [320, 640, 960, 1200, 1800, 2400],
-      placeholder: true,
-      placeholderSize: 20,
-      format: 'webp',
-      sharp: {
-        format: {
-          webp: true,
-        },
-        progressive: true,
-      },
-    },
-  },
 
   sitemap: {
     hostname: BASE_URL,
     xslUrl: '/sitemap.xsl',
+  },
+
+  image: {
+    provider: 'static',
+    screens: {
+      placeholder: 10,
+      xs: 320,
+      sm: 600,
+      md: 960,
+      lg: 1280,
+      xl: 1920,
+    },
+    domains: [env.HOST],
   },
 
   /*
