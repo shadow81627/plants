@@ -14,12 +14,7 @@
                     <v-card style="background: rgba(0, 0, 0, 0.3)">
                       <v-card-title>
                         <h1 class="text-break text-wrap">
-                          {{ startCase(item.species.split('(')[0].trim()) }} ({{
-                            item.species
-                              .split('(')[1]
-                              .replace(/\)+$/, '')
-                              .trim()
-                          }})
+                          {{ commonName }} ({{ botanicalName }})
                         </h1>
                       </v-card-title>
                       <!-- <v-card-text class="caption text-no-wrap">
@@ -34,10 +29,10 @@
 
           <div v-if="$vuetify.breakpoint.mdAndDown">
             <v-card-title>
-              {{ startCase(item.species.split('(')[0].trim()) }}
+              {{ commonName }}
             </v-card-title>
             <v-card-subtitle class="pb-0 font-italic">{{
-              item.species.split('(')[1].replace(/\)+$/, '').trim()
+              botanicalName
             }}</v-card-subtitle>
           </div>
 
