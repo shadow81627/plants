@@ -3,7 +3,7 @@
     <v-row>
       <v-col class="d-flex flex-column">
         <v-card class="flex d-flex flex-column justify-between">
-          <Hero :src="`/img/species/${item.image}`">
+          <Hero v-if="item.image" :src="`/img/species/${item.image}`">
             <template #item>
               <v-container
                 v-if="$vuetify.breakpoint.lgAndUp"
