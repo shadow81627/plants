@@ -292,18 +292,21 @@ export default {
   },
   computed: {
     flowerColor() {
-      const data = this.waterwise['Flower colour'] || ''
-      return data.split(' and ')
+      const separator = ' and '
+      const data = this.waterwise['Flower colour'] || separator
+      return data.split(separator)
     },
     commonName() {
-      const text = this.item.species || '('
-      const splits = text.split('(')
+      const separator = '('
+      const text = this.item.species || separator
+      const splits = text.split(separator)
       const split = splits[0]
       return startCase(split.trim())
     },
     botanicalName() {
-      const text = this.item.species || '('
-      const splits = text.split('(')
+      const separator = '('
+      const text = this.item.species || separator
+      const splits = text.split(separator)
       const split = splits[1]
       return split.replace(/\)+$/, '').trim()
     },
