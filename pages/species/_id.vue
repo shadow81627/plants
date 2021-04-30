@@ -108,10 +108,7 @@
 
                 <v-card-subtitle class="pb-0">Flower Colour</v-card-subtitle>
                 <v-card-text class="text--primary">
-                  <span
-                    v-for="color in waterwise['Flower colour'].split(' and ')"
-                    :key="color"
-                  >
+                  <span v-for="color in flowerColor" :key="color">
                     <!-- <span style="display: inline-flex; align-self: bottom;">
                       <svg
                         style="
@@ -294,11 +291,21 @@ export default {
     }
   },
   computed: {
+    flowerColor() {
+      const data = this.waterwise['Flower colour'] || ''
+      return data.split(' and ')
+    },
     commonName() {
-      return startCase(this.item.species.split('(')[0].trim())
+      const text = this.item.species || '('
+      const splits = text.split('(')
+      const split = splits[0]
+      return startCase(split.trim())
     },
     botanicalName() {
-      return this.item.species.split('(')[1].replace(/\)+$/, '').trim()
+      const text = this.item.species || '('
+      const splits = text.split('(')
+      const split = splits[1]
+      return split.replace(/\)+$/, '').trim()
     },
   },
   methods: {
