@@ -253,6 +253,9 @@ export default {
           )
         )
       })
+      if (!item && !item.length) {
+        context.error({ statusCode: 404 })
+      }
       return { item, waterwise }
     } catch {
       context.error({ statusCode: 404 })
