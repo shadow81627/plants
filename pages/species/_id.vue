@@ -131,10 +131,7 @@
 
                 <v-card-subtitle class="pb-0">Foliage Colour</v-card-subtitle>
                 <v-card-text class="text--primary">
-                  <span
-                    v-for="color in waterwise['Foliage Colour'].split(' and ')"
-                    :key="color"
-                  >
+                  <span v-for="color in foliageColour" :key="color">
                     <!-- <span style="display: inline-flex; align-self: bottom;">
                       <svg
                         style="
@@ -160,11 +157,7 @@
                     Climate Zones
                   </v-card-subtitle>
                   <v-card-text>
-                    <v-chip
-                      v-for="i in waterwise['Climate Zones'].split(',').sort()"
-                      :key="i"
-                      readonly
-                    >
+                    <v-chip v-for="i in climateZones" :key="i" readonly>
                       {{ startCase(i) }}
                     </v-chip>
                   </v-card-text>
@@ -173,11 +166,7 @@
                 <template v-if="waterwise['Soil Type']">
                   <v-card-subtitle class="pb-0"> Soil Type </v-card-subtitle>
                   <v-card-text>
-                    <v-chip
-                      v-for="i in waterwise['Soil Type'].split(',').sort()"
-                      :key="i"
-                      readonly
-                    >
+                    <v-chip v-for="i in soilType" :key="i" readonly>
                       {{ startCase(i) }}
                     </v-chip>
                   </v-card-text>
@@ -205,11 +194,7 @@
                 <template v-if="item.attracts">
                   <v-card-subtitle class="pb-0"> Attracts </v-card-subtitle>
                   <v-card-text>
-                    <v-chip
-                      v-for="attract in item.attracts.split(',').sort()"
-                      :key="attract"
-                      readonly
-                    >
+                    <v-chip v-for="attract in attracts" :key="attract" readonly>
                       {{ startCase(attract) }}
                     </v-chip>
                   </v-card-text>
@@ -291,10 +276,30 @@ export default {
     }
   },
   computed: {
+    attracts() {
+      const separator = ','
+      const data = this.item.attracts || separator
+      return this.split(data, separator).sort()
+    },
+    soilType() {
+      const separator = ','
+      const data = this.waterwise['Soil Type'] || separator
+      return this.split(data, separator).sort()
+    },
+    climateZones() {
+      const separator = ','
+      const data = this.waterwise['Climate Zones'] || separator
+      return this.split(data, separator).sort()
+    },
+    foliageColor() {
+      const separator = ' and '
+      const data = this.waterwise['Foliage Colour'] || separator
+      return this.split(data, separator).sort()
+    },
     flowerColor() {
       const separator = ' and '
       const data = this.waterwise['Flower colour'] || separator
-      return data.split(separator)
+      return this.split(data, separator).sort()
     },
     commonName() {
       const separator = '('
@@ -313,6 +318,9 @@ export default {
   },
   methods: {
     startCase,
+    split(text, separator = ',') {
+      return text.split(separator)
+    },
   },
 }
 </script>
