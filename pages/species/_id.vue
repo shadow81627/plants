@@ -131,7 +131,7 @@
 
                 <v-card-subtitle class="pb-0">Foliage Colour</v-card-subtitle>
                 <v-card-text class="text--primary">
-                  <span v-for="color in foliageColour" :key="color">
+                  <span v-for="color in foliageColor" :key="color">
                     <!-- <span style="display: inline-flex; align-self: bottom;">
                       <svg
                         style="
