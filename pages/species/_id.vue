@@ -225,47 +225,48 @@
 import { mdiArrowRight } from '@mdi/js'
 import { startCase } from 'lodash-es'
 export default {
-  async asyncData(context) {
-    try {
-      const id = context.route.params.id
-      const result = await context.$content('species').fetch()
-      const { body } = result
-      const item = body.find((item) => item.species === id) ?? {}
-
-      const { body: waterwiseBody = [] } = await context
-        .$content('waterwise-plants')
-        .fetch()
-      const waterwise = waterwiseBody.find((i) => {
-        const commonName = startCase(item.species.split('(')[0].trim())
-        const botanicalName = item.species
-          .split('(')[1]
-          .replace(/seasonal$/, '')
-          .replace(/-/, '')
-          .trim()
-          .replace(/\)+$/, '')
-          .trim()
-        return (
-          i['Common Name'] === commonName ||
-          i['Botanical Name'] === botanicalName ||
-          i['Previous Name'] === botanicalName ||
-          i['Botanical Name'].startsWith(
-            botanicalName.replace(/sp\.$/, '').trim()
-          )
-        )
-      })
-      if (!item && !item.length) {
-        context.error({ statusCode: 404 })
-      }
-      return { item, waterwise }
-    } catch {
-      context.error({ statusCode: 404 })
-    }
-  },
   data: () => ({
     item: {},
     waterwise: {},
     mdiArrowRight,
   }),
+  async fetch() {
+    const id = this.$route.params.id
+    const result = await this.$content('species').fetch()
+    const { body } = result
+    const item = body.find((item) => item.species === id) ?? {}
+
+    const { body: waterwiseBody = [] } = await this.$content(
+      'waterwise-plants'
+    ).fetch()
+    const waterwise = waterwiseBody.find((i) => {
+      const commonName = startCase(item.species.split('(')[0].trim())
+      const botanicalName = item.species
+        .split('(')[1]
+        .replace(/seasonal$/, '')
+        .replace(/-/, '')
+        .trim()
+        .replace(/\)+$/, '')
+        .trim()
+      return (
+        i['Common Name'] === commonName ||
+        i['Botanical Name'] === botanicalName ||
+        i['Previous Name'] === botanicalName ||
+        i['Botanical Name'].startsWith(
+          botanicalName.replace(/sp\.$/, '').trim()
+        )
+      )
+    })
+    if (!item && !item.length) {
+      if (process.server) {
+        this.$nuxt.context.res.statusCode = 404
+      } else {
+        this.$nuxt.error({ statusCode: 404 })
+      }
+    }
+    this.item = item
+    this.waterwise = waterwise
+  },
   head() {
     return {
       title: this.item.species,
@@ -281,48 +282,57 @@ export default {
   computed: {
     attracts() {
       const separator = ','
-      const data = this.item.attracts || separator
+      const data = this.item.attracts
       return this.split(data, separator).sort()
     },
     soilType() {
       const separator = ','
-      const data = this.waterwise['Soil Type'] || separator
+      const data = this.waterwise['Soil Type']
       return this.split(data, separator).sort()
     },
     climateZones() {
       const separator = ','
-      const data = this.waterwise['Climate Zones'] || separator
+      const data = this.waterwise['Climate Zones']
       return this.split(data, separator).sort()
     },
     foliageColor() {
       const separator = ' and '
-      const data = this.waterwise['Foliage Colour'] || separator
+      const data = this.waterwise['Foliage Colour']
       return this.split(data, separator).sort()
     },
     flowerColor() {
       const separator = ' and '
-      const data = this.waterwise['Flower colour'] || separator
+      const data = this.waterwise['Flower colour']
       return this.split(data, separator).sort()
     },
     commonName() {
       const separator = '('
-      const text = this.item.species || separator
-      const splits = text.split(separator)
-      const split = splits[0]
-      return startCase(split.trim())
+      const text = this.item.species
+      const splits = this.split(text, separator)
+      if (splits && splits.length) {
+        const split = splits[0]
+        return startCase(split.trim())
+      }
+      return null
     },
     botanicalName() {
       const separator = '('
-      const text = this.item.species || separator
-      const splits = text.split(separator)
-      const split = splits[1]
-      return split.replace(/\)+$/, '').trim()
+      const text = this.item.species
+      const splits = this.split(text, separator)
+      if (splits && splits.length) {
+        const split = splits[1]
+        return split.replace(/\)+$/, '').trim()
+      }
+      return null
     },
   },
   methods: {
     startCase,
     split(text, separator = ',') {
-      return text.split(separator)
+      if (text) {
+        return text.split(separator)
+      }
+      return []
     },
   },
 }
