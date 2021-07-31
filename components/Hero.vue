@@ -27,6 +27,7 @@
               :sizes="_srcset(item.src).size"
               :gradient="gradient"
               eager
+              dark
             >
               <slot name="item" :item="item">
                 <v-container
