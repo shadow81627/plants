@@ -1,8 +1,8 @@
-const http = require('http')
-const { setHeadlessWhen } = require('@codeceptjs/configure')
-const handler = require('serve-handler')
+import { createServer } from 'http'
+import { setHeadlessWhen } from '@codeceptjs/configure'
+import handler from 'serve-handler'
 
-const server = http.createServer((request, response) => {
+const server = createServer((request, response) => {
   // You pass two more arguments for config and middleware
   // More details here: https://github.com/vercel/serve-handler#options
   return handler(request, response, { public: 'dist' })
@@ -10,9 +10,9 @@ const server = http.createServer((request, response) => {
 
 // turn on headless mode when running with HEADLESS=true environment variable
 // export HEADLESS=true && npx codeceptjs run
-setHeadlessWhen(process.env.CI)
+setHeadlessWhen(true)
 
-exports.config = {
+export const config = {
   tests: './test/e2e/specs/*_test.js',
   output: './test/e2e/output',
   helpers: {
@@ -23,7 +23,6 @@ exports.config = {
     },
     ResembleHelper: {
       require: 'codeceptjs-resemblehelper',
-      // screenshotFolder: './test/e2e/output/',
       baseFolder: './test/e2e/screenshots/base/',
       diffFolder: './test/e2e/screenshots/diff/',
       prepareBaseImage: true,
@@ -39,13 +38,13 @@ exports.config = {
     server.close()
   },
   mocha: {},
-  name: 'free-native-plants',
+  name: 'plants',
   plugins: {
     retryFailedStep: {
       enabled: true,
     },
     screenshotOnFail: {
-      enabled: true,
+      enabled: false,
     },
   },
 }
