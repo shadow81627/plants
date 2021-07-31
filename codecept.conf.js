@@ -1,8 +1,8 @@
-import { createServer } from 'http'
-import { setHeadlessWhen } from '@codeceptjs/configure'
-import handler from 'serve-handler'
+const http = require('http')
+const { setHeadlessWhen } = require('@codeceptjs/configure')
+const handler = require('serve-handler')
 
-const server = createServer((request, response) => {
+const server = http.createServer((request, response) => {
   // You pass two more arguments for config and middleware
   // More details here: https://github.com/vercel/serve-handler#options
   return handler(request, response, { public: 'dist' })
@@ -12,7 +12,7 @@ const server = createServer((request, response) => {
 // export HEADLESS=true && npx codeceptjs run
 setHeadlessWhen(true)
 
-export const config = {
+exports.config = {
   tests: './test/e2e/specs/*_test.js',
   output: './test/e2e/output',
   helpers: {
