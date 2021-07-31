@@ -26,6 +26,7 @@ const env = {
 }
 
 export default {
+  modern: true,
   /*
    ** Nuxt target
    ** See https://nuxtjs.org/api/configuration-target
