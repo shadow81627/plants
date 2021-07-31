@@ -27,27 +27,12 @@ export default {
     utc: Boolean,
     interval: { type: Number, default: 60000 },
   },
-  data() {
-    return {
-      relativeDate: null,
-      timer: null,
-    }
-  },
   computed: {
     lastModified() {
       return dayjs(this.$config.DATE_GENERATED)
     },
-  },
-  created() {
-    this.toRelativeDate()
-    this.timer = setInterval(this.toRelativeDate, this.interval)
-  },
-  beforeDestroy() {
-    clearInterval(this.timer)
-  },
-  methods: {
-    toRelativeDate() {
-      this.relativeDate = this.lastModified.fromNow()
+    relativeDate() {
+      return this.lastModified.fromNow()
     },
   },
 }
