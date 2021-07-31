@@ -6,18 +6,18 @@
   "scripts": {
     "dev": "nuxt",
     "build": "nuxt build --modern",
-    "build:analyze": "npm run build -- --analyze",
+    "build:analyze": "yarn run build -- --analyze",
     "bundlewatch": "bundlewatch --config bundlewatch.config.json",
     "start": "nuxt start",
-    "serve:lhci": "npm run start",
+    "serve:lhci": "yarn run start",
     "lhci:autorun": "lhci autorun",
     "generate": "nuxt generate --modern",
     "lint:js": "eslint --ext .js,.vue --ignore-path .gitignore .",
     "lint:style": "stylelint **/*.{vue,css} --ignore-path .gitignore",
-    "lint": "npm run lint:js && npm run lint:style",
-    "lint:fix": "npm run lint:js -- --fix && npm run lint:style -- --fix",
+    "lint": "yarn run lint:js && yarn run lint:style",
+    "lint:fix": "yarn run lint:js -- --fix && yarn run lint:style -- --fix",
     "images": "node images.js",
-    "test": "jest",
+    "test": "yarn run test:e2e",
     "test:e2e": "codeceptjs run --steps"
   },
   "lint-staged": {
@@ -29,6 +29,11 @@
       "pre-commit": "lint-staged"
     }
   },
+  "engines": {
+    "node": ">=14.x",
+    "npm": "please-use-yarn",
+    "yarn": "1.x"
+},
   "dependencies": {
     "@nuxt/content": "1.14.0",
     "@nuxt/typescript-runtime": "2.1.0",

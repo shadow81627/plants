@@ -13,12 +13,15 @@ jobs:
         with:
           fetch-depth: 0
           persist-credentials: false
+
       - name: Setup Node.js 🏗
         uses: actions/setup-node@v2
         with:
-          node-version: 12
+          node-version: 14
+
       - name: Install dependencies 👨🏻‍💻
-        run: npm ci
+        run: yarn Install
+
       - name: Release 🚀
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
