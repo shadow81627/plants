@@ -1,3 +1,5 @@
+const WARN = 'warn'
+
 module.exports = {
   ci: {
     collect: {
@@ -15,11 +17,13 @@ module.exports = {
       assert: {
         preset: 'lighthouse:recommended',
         assertions: {
-          'unused-javascript': 'warn',
-          'unused-css-rules': 'warn',
-          'non-composited-animations': 'warn',
-          'errors-in-console': 'warn',
-          'valid-source-maps': 'warn',
+          'unused-javascript': WARN,
+          'unused-css-rules': WARN,
+          'non-composited-animations': WARN,
+          'errors-in-console': WARN,
+          'valid-source-maps': WARN,
+          'csp-xss': WARN,
+          'preload-lcp-image': WARN,
         },
       },
     },
