@@ -70,8 +70,7 @@ export default {
         author: 'Brisbane City Council',
         description:
           "This dataset contains information about Brisbane City Council's Free Native Plants Program. Council offers the Free Native Plants Program to residential ratepayers, schools, clubs, body corporates and registered community groups within the Brisbane Local Government area to plant on their properties. The native species provided through the program are designed to help grow our city's urban forest and support local wildlife.",
-        link:
-          'https://www.data.brisbane.qld.gov.au/data/dataset/free-native-plants',
+        link: 'https://www.data.brisbane.qld.gov.au/data/dataset/free-native-plants',
         license: {
           text: 'Creative Commons Attribution 4.0',
           link: 'https://creativecommons.org/licenses/by/4.0/',
