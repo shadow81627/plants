@@ -10,7 +10,7 @@ const server = http.createServer((request, response) => {
 
 // turn on headless mode when running with HEADLESS=true environment variable
 // export HEADLESS=true && npx codeceptjs run
-setHeadlessWhen(process.env.CI)
+setHeadlessWhen(true)
 
 exports.config = {
   tests: './test/e2e/specs/*_test.js',
@@ -23,7 +23,6 @@ exports.config = {
     },
     ResembleHelper: {
       require: 'codeceptjs-resemblehelper',
-      // screenshotFolder: './test/e2e/output/',
       baseFolder: './test/e2e/screenshots/base/',
       diffFolder: './test/e2e/screenshots/diff/',
       prepareBaseImage: true,
@@ -39,13 +38,13 @@ exports.config = {
     server.close()
   },
   mocha: {},
-  name: 'free-native-plants',
+  name: 'plants',
   plugins: {
     retryFailedStep: {
       enabled: true,
     },
     screenshotOnFail: {
-      enabled: true,
+      enabled: false,
     },
   },
 }

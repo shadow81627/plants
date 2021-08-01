@@ -18,7 +18,8 @@
     "lint:fix": "yarn run lint:js -- --fix && yarn run lint:style -- --fix",
     "images": "node images.js",
     "test": "yarn run test:e2e",
-    "test:e2e": "codeceptjs run --steps"
+    "test:e2e": "codeceptjs run --steps",
+    "update:snapshots": "rsync -a ./test/e2e/output/ ./test/e2e/screenshots/base"
   },
   "lint-staged": {
     "*.{js,vue}": "eslint",
