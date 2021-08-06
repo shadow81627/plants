@@ -4459,10 +4459,10 @@ codeceptjs-resemblehelper@1.9.3:
     path "^0.12.7"
     resemblejs "^3.2.4"
 
-codeceptjs@3.1.0:
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/codeceptjs/-/codeceptjs-3.1.0.tgz#b49a01292e19664cddc5e789f87e44ee89752c2a"
-  integrity sha512-qUb//dbSt+CFIM5Ao4wz55rK2x7RpdtKjQ1RTZYNt+Box7JYOXWm+BvHl8BZpdnUimtdKLT2yN+qJ8hcvlK7KA==
+codeceptjs@3.1.1:
+  version "3.1.1"
+  resolved "https://registry.yarnpkg.com/codeceptjs/-/codeceptjs-3.1.1.tgz#77757ca779549258451e08a0136c7164357382ed"
+  integrity sha512-9ns82gxMc04kAy7S2FI0ZhevAOSBrZnHGTX9AXivhmg7hyK5QUKfm6grSVcFxwEHBbQta2G98h8W32eKGo4POA==
   dependencies:
     "@codeceptjs/configure" "^0.6.2"
     "@codeceptjs/helper" "^1.0.2"
