@@ -79,7 +79,7 @@
     "imagemin-pngquant": "9.0.2",
     "jest": "27.3.1",
     "lint-staged": "11.2.6",
-    "playwright": "1.16.2",
+    "playwright": "1.16.3",
     "prettier": "2.4.1",
     "puppeteer": "10.4.0",
     "serve-handler": "6.1.3",
