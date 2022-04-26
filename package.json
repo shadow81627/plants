@@ -78,7 +78,7 @@
     "husky": "7.0.4",
     "imagemin-pngquant": "9.0.2",
     "jest": "28.0.1",
-    "lint-staged": "12.4.0",
+    "lint-staged": "12.4.1",
     "playwright": "1.21.1",
     "prettier": "2.6.2",
     "puppeteer": "13.6.0",
