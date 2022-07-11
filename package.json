@@ -68,7 +68,7 @@
     "babel-eslint": "10.1.0",
     "babel-jest": "28.1.2",
     "bundlewatch": "0.3.3",
-    "codeceptjs": "3.3.3",
+    "codeceptjs": "3.3.4",
     "codeceptjs-resemblehelper": "1.9.6",
     "cross-env": "7.0.3",
     "eslint": "8.19.0",
