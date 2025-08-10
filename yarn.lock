@@ -4751,10 +4751,10 @@ coa@^2.0.2:
     chalk "^2.4.1"
     q "^1.1.2"
 
-codeceptjs-resemblehelper@1.9.6:
-  version "1.9.6"
-  resolved "https://registry.yarnpkg.com/codeceptjs-resemblehelper/-/codeceptjs-resemblehelper-1.9.6.tgz#240bdca06940faa76c928bbf7183949659964d19"
-  integrity sha512-6faU8adfQaCxetC0IuuypQGEGC5KlmkEdA1HkdswpaCFEEN9vkpOxKocV3DDihd7Jdly05xTtf0PcHh/BlqBAA==
+codeceptjs-resemblehelper@1.9.7:
+  version "1.9.7"
+  resolved "https://registry.yarnpkg.com/codeceptjs-resemblehelper/-/codeceptjs-resemblehelper-1.9.7.tgz#e467e6a370b301f5a157c561a3be213e6bc17a5f"
+  integrity sha512-6UNK6jPo/lrb/IpSYrZFOfj7LQk+l8KRF1z7CkHkNM8M+Xp5lPuzuPFfRq+qCK4fm9ytIfPFuP+ZuLACGThSkw==
   dependencies:
     assert "^1.5.0"
     aws-sdk "2.1027.0"
